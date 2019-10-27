@@ -1,5 +1,5 @@
 module.exports = {
-    
+
     "editor.fontFamily": "Operator Mono, Menlo, Monaco, 'Courier New', monospace",
     "editor.fontSize": 29,
     "editor.lineHeight": 45,
