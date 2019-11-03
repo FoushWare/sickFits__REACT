@@ -17,10 +17,9 @@ const styledPage=styled.div`
     color:${props=>props.theme.black};
 `;
 const Inner=styled.div`
-    max-width:${props => props.theme.maxWidth};
-    background:${props=>props.theme.red};
-    margin:0 auto;
-    padding:2rem;
+   max-width: ${props => props.theme.maxWidth};
+  margin: 0 auto;
+  padding: 2rem;
 `;
 injectGlobal`
 
