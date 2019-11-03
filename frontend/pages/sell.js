@@ -1,9 +1,8 @@
-import Link from 'next/link';
+import CreateItem from "../components/CreateItem";
 const sell = () => {
   return (
     <>
-    <div>sell page</div>
-
+      <CreateItem/>
     </>
   );
 }

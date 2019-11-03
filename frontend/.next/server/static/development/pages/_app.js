@@ -594,7 +594,7 @@ function createClient(_ref) {
     request: function request(operation) {
       operation.setContext({
         fetchOptions: {
-          credentials: 'include'
+          credentials: 'same-origin'
         },
         connectToDevTools: true,
         headers: headers
