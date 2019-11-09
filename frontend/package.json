@@ -43,12 +43,21 @@
     "babel-plugin-module-resolver": "^3.1.1",
     "casual": "^1.5.19",
     "enzyme-to-json": "^3.3.4",
-    "eslint": "^6.6.0",
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb": "^18.0.1",
     "eslint-config-google": "^0.14.0",
+    "eslint-config-node": "^4.0.0",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-react": "^7.16.0",
+    "eslint-plugin-react-hooks": "^1.7.0",
     "graphql-tools": "^4.0.0",
     "jest": "^23.6.0",
-    "jest-transform-graphql": "^2.1.0"
+    "jest-transform-graphql": "^2.1.0",
+    "prettier": "^1.18.2"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/jest.setup.js",

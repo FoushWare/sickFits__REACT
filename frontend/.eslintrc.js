@@ -1,3 +1,4 @@
+// 0 = off, 1 = warning, 2 = error
 module.exports = {
   "extends": [
     "airbnb",
@@ -20,6 +21,7 @@ module.exports = {
   },
   "rules": {
     "no-debugger": 0,
+    "no-unused-vars":1,
     "no-alert": 0,
     "no-await-in-loop": 0,
     "no-return-assign": [
@@ -79,6 +81,8 @@ module.exports = {
     "react/no-unescaped-entities": 0,
     "jsx-a11y/accessible-emoji": 0,
     "react/require-default-props": 0,
+    "react/state-in-constructor":0,
+    "react/no-unused-state":0,
     "react/jsx-filename-extension": [
       1,
       {
