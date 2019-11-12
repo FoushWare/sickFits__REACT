@@ -68,6 +68,27 @@ const Mutations = {
 
     //finnally we return the user to the browser
     return user;
+  },
+  async signin(parent, { email, password },ctx,info){
+    // 1. check if there is a user with this email
+      const user =await ctx.db.query.user({where:{email}});
+      if(!user){
+        throw new Error(`No such user found for email: ${email}`);
+      }
+    // 2. check if the password match the passed pass
+     const valid= await bcrypt.compare(password,user.password);
+     if(!valid){
+       throw new Error('Invalid Password');
+     }
+    // 3.create the token with the userId
+    const token =jwt.sign({userId:user.id},process.env.APP_SECRET);
+    // 4.pass the token to the cookies
+    ctx.response.cookie('token',token,{
+      httpOnly:true,
+      maxAge: 1000 * 60 * 60 * 24 * 365,
+    })
+    // 5-return the user
+    return user;
   }
 };
 
