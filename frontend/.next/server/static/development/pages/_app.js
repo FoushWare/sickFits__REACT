@@ -584,6 +584,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var apollo_boost__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(apollo_boost__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _config__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../config */ "./config.js");
 
+ // import { InMemoryCache } from 'apollo-cache-inmemory';
 
 
 
@@ -593,8 +594,9 @@ function createClient(_ref) {
     uri:  true ? _config__WEBPACK_IMPORTED_MODULE_2__["endpoint"] : undefined,
     request: function request(operation) {
       operation.setContext({
+        // credentials: 'include',
         fetchOptions: {
-          credentials: 'same-origin'
+          credentials: 'include'
         },
         connectToDevTools: true,
         headers: headers

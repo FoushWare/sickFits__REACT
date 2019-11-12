@@ -39,6 +39,8 @@
     "waait": "^1.0.2"
   },
   "devDependencies": {
+    "apollo-cache-inmemory": "^1.6.3",
+    "apollo-link-http": "^1.5.16",
     "babel-jest": "^23.6.0",
     "babel-plugin-module-resolver": "^3.1.1",
     "casual": "^1.5.19",
