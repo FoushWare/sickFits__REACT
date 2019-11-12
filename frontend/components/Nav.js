@@ -1,26 +1,34 @@
 import Link from 'next/link';
-import NavStyles from "./styles/NavStyles";
-const Nav = () => {
-  return (
-    <NavStyles>
-      <Link href="/items">
-        <a>Shop</a>
-      </Link>
-      <Link href="/sell">
-        <a>Sell</a>
-      </Link>
-      <Link href="/signup">
-        <a>Signup</a>
-      </Link>
-      <Link href="/order">
-        <a>Orders</a>
-      </Link>
-      <Link href="/me">
-        <a>Account</a>
-      </Link>
+import NavStyles from './styles/NavStyles';
+import User from './User';
 
-    </NavStyles>
-  );
-}
+const Nav = () => (
+  <NavStyles>
+    <User>
+      {/* payload ->disturcure it to   {data,error} */}
+      {/* data ->disturcure it to  {data:{me}} */}
+      {({ data: { me } }) => {
+        console.log(me);
+        if (me) return <p>{me.name}</p>;
+        return null;
+      }}
+    </User>
+    <Link href="/items">
+      <a>Shop</a>
+    </Link>
+    <Link href="/sell">
+      <a>Sell</a>
+    </Link>
+    <Link href="/signup">
+      <a>Signup</a>
+    </Link>
+    <Link href="/order">
+      <a>Orders</a>
+    </Link>
+    <Link href="/me">
+      <a>Account</a>
+    </Link>
+  </NavStyles>
+);
 
 export default Nav;
