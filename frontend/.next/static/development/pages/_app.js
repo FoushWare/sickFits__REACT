@@ -1856,7 +1856,7 @@ function previouslyCompared(a, b) {
 /*!************************************************!*\
   !*** ./node_modules/apollo-boost/lib/index.js ***!
   \************************************************/
-/*! exports provided: printAST, ObservableQuery, NetworkStatus, ApolloError, ApolloClient, gql, InMemoryCache, HttpLink, default, FetchType, createOperation, makePromise, toPromise, fromPromise, fromError, Observable, defaultDataIdFromObject, empty, from, split, concat, ApolloLink, execute, ID_KEY, readQueryFromStore, diffQueryAgainstStore, assertIdValue, WriteError, enhanceErrorWithDocument, writeQueryToStore, writeResultToStore, writeSelectionSetToStore, HeuristicFragmentMatcher, IntrospectionFragmentMatcher, ObjectCache, defaultNormalizedCacheFactory, RecordingCache, record */
+/*! exports provided: printAST, ObservableQuery, NetworkStatus, ApolloError, ApolloClient, createOperation, makePromise, toPromise, fromPromise, fromError, Observable, HeuristicFragmentMatcher, InMemoryCache, IntrospectionFragmentMatcher, ObjectCache, StoreReader, StoreWriter, WriteError, assertIdValue, defaultDataIdFromObject, defaultNormalizedCacheFactory, enhanceErrorWithDocument, gql, HttpLink, default, FetchType, empty, from, split, concat, ApolloLink, execute */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1899,11 +1899,28 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "execute", function() { return apollo_link__WEBPACK_IMPORTED_MODULE_1__["execute"]; });
 
-/* harmony import */ var apollo_cache_inmemory__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! apollo-cache-inmemory */ "./node_modules/apollo-cache-inmemory/lib/index.js");
-/* harmony import */ var apollo_cache_inmemory__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(apollo_cache_inmemory__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in apollo_cache_inmemory__WEBPACK_IMPORTED_MODULE_2__) if(["gql","InMemoryCache","HttpLink","printAST","ObservableQuery","NetworkStatus","ApolloError","ApolloClient","default","FetchType","createOperation","makePromise","toPromise","fromPromise","fromError","Observable","empty","from","split","concat","ApolloLink","execute","default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return apollo_cache_inmemory__WEBPACK_IMPORTED_MODULE_2__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var apollo_link_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! apollo-link-http */ "./node_modules/apollo-link-http/lib/index.js");
-/* harmony import */ var apollo_link_http__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(apollo_link_http__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var apollo_cache_inmemory__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! apollo-cache-inmemory */ "./node_modules/apollo-cache-inmemory/lib/bundle.esm.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "HeuristicFragmentMatcher", function() { return apollo_cache_inmemory__WEBPACK_IMPORTED_MODULE_2__["HeuristicFragmentMatcher"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "IntrospectionFragmentMatcher", function() { return apollo_cache_inmemory__WEBPACK_IMPORTED_MODULE_2__["IntrospectionFragmentMatcher"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ObjectCache", function() { return apollo_cache_inmemory__WEBPACK_IMPORTED_MODULE_2__["ObjectCache"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "StoreReader", function() { return apollo_cache_inmemory__WEBPACK_IMPORTED_MODULE_2__["StoreReader"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "StoreWriter", function() { return apollo_cache_inmemory__WEBPACK_IMPORTED_MODULE_2__["StoreWriter"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "WriteError", function() { return apollo_cache_inmemory__WEBPACK_IMPORTED_MODULE_2__["WriteError"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "assertIdValue", function() { return apollo_cache_inmemory__WEBPACK_IMPORTED_MODULE_2__["assertIdValue"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "defaultDataIdFromObject", function() { return apollo_cache_inmemory__WEBPACK_IMPORTED_MODULE_2__["defaultDataIdFromObject"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "defaultNormalizedCacheFactory", function() { return apollo_cache_inmemory__WEBPACK_IMPORTED_MODULE_2__["defaultNormalizedCacheFactory"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "enhanceErrorWithDocument", function() { return apollo_cache_inmemory__WEBPACK_IMPORTED_MODULE_2__["enhanceErrorWithDocument"]; });
+
+/* harmony import */ var apollo_link_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! apollo-link-http */ "./node_modules/apollo-link-http/lib/bundle.esm.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "HttpLink", function() { return apollo_link_http__WEBPACK_IMPORTED_MODULE_3__["HttpLink"]; });
 
 /* harmony import */ var apollo_link_state__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! apollo-link-state */ "./node_modules/apollo-link-state/lib/index.js");
@@ -2046,24 +2063,134 @@ var DefaultClient = (function (_super) {
 
 /***/ }),
 
-/***/ "./node_modules/apollo-cache-inmemory/lib/depTrackingCache.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/apollo-cache-inmemory/lib/depTrackingCache.js ***!
-  \********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ "./node_modules/apollo-cache-inmemory/lib/bundle.esm.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/apollo-cache-inmemory/lib/bundle.esm.js ***!
+  \**************************************************************/
+/*! exports provided: HeuristicFragmentMatcher, InMemoryCache, IntrospectionFragmentMatcher, ObjectCache, StoreReader, StoreWriter, WriteError, assertIdValue, defaultDataIdFromObject, defaultNormalizedCacheFactory, enhanceErrorWithDocument */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HeuristicFragmentMatcher", function() { return HeuristicFragmentMatcher; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InMemoryCache", function() { return InMemoryCache; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IntrospectionFragmentMatcher", function() { return IntrospectionFragmentMatcher; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ObjectCache", function() { return ObjectCache; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StoreReader", function() { return StoreReader; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "StoreWriter", function() { return StoreWriter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WriteError", function() { return WriteError; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "assertIdValue", function() { return assertIdValue; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "defaultDataIdFromObject", function() { return defaultDataIdFromObject; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "defaultNormalizedCacheFactory", function() { return defaultNormalizedCacheFactory$1; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "enhanceErrorWithDocument", function() { return enhanceErrorWithDocument; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var apollo_cache__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! apollo-cache */ "./node_modules/apollo-cache-inmemory/node_modules/apollo-cache/lib/bundle.esm.js");
+/* harmony import */ var apollo_utilities__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! apollo-utilities */ "./node_modules/apollo-cache-inmemory/node_modules/apollo-utilities/lib/bundle.esm.js");
+/* harmony import */ var optimism__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! optimism */ "./node_modules/optimism/lib/bundle.esm.js");
+/* harmony import */ var ts_invariant__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ts-invariant */ "./node_modules/ts-invariant/lib/invariant.esm.js");
 
-Object.defineProperty(exports, "__esModule", { value: true });
-var optimism_1 = __webpack_require__(/*! optimism */ "./node_modules/optimism/lib/bundle.esm.js");
+
+
+
+
+
+var haveWarned = false;
+function shouldWarn() {
+    var answer = !haveWarned;
+    if (!Object(apollo_utilities__WEBPACK_IMPORTED_MODULE_2__["isTest"])()) {
+        haveWarned = true;
+    }
+    return answer;
+}
+var HeuristicFragmentMatcher = (function () {
+    function HeuristicFragmentMatcher() {
+    }
+    HeuristicFragmentMatcher.prototype.ensureReady = function () {
+        return Promise.resolve();
+    };
+    HeuristicFragmentMatcher.prototype.canBypassInit = function () {
+        return true;
+    };
+    HeuristicFragmentMatcher.prototype.match = function (idValue, typeCondition, context) {
+        var obj = context.store.get(idValue.id);
+        var isRootQuery = idValue.id === 'ROOT_QUERY';
+        if (!obj) {
+            return isRootQuery;
+        }
+        var _a = obj.__typename, __typename = _a === void 0 ? isRootQuery && 'Query' : _a;
+        if (!__typename) {
+            if (shouldWarn()) {
+                "development" === "production" || ts_invariant__WEBPACK_IMPORTED_MODULE_4__["invariant"].warn("You're using fragments in your queries, but either don't have the addTypename:\n  true option set in Apollo Client, or you are trying to write a fragment to the store without the __typename.\n   Please turn on the addTypename option and include __typename when writing fragments so that Apollo Client\n   can accurately match fragments.");
+                "development" === "production" || ts_invariant__WEBPACK_IMPORTED_MODULE_4__["invariant"].warn('Could not find __typename on Fragment ', typeCondition, obj);
+                "development" === "production" || ts_invariant__WEBPACK_IMPORTED_MODULE_4__["invariant"].warn("DEPRECATION WARNING: using fragments without __typename is unsupported behavior " +
+                    "and will be removed in future versions of Apollo client. You should fix this and set addTypename to true now.");
+            }
+            return 'heuristic';
+        }
+        if (__typename === typeCondition) {
+            return true;
+        }
+        if (shouldWarn()) {
+            "development" === "production" || ts_invariant__WEBPACK_IMPORTED_MODULE_4__["invariant"].error('You are using the simple (heuristic) fragment matcher, but your ' +
+                'queries contain union or interface types. Apollo Client will not be ' +
+                'able to accurately map fragments. To make this error go away, use ' +
+                'the `IntrospectionFragmentMatcher` as described in the docs: ' +
+                'https://www.apollographql.com/docs/react/advanced/fragments.html#fragment-matcher');
+        }
+        return 'heuristic';
+    };
+    return HeuristicFragmentMatcher;
+}());
+var IntrospectionFragmentMatcher = (function () {
+    function IntrospectionFragmentMatcher(options) {
+        if (options && options.introspectionQueryResultData) {
+            this.possibleTypesMap = this.parseIntrospectionResult(options.introspectionQueryResultData);
+            this.isReady = true;
+        }
+        else {
+            this.isReady = false;
+        }
+        this.match = this.match.bind(this);
+    }
+    IntrospectionFragmentMatcher.prototype.match = function (idValue, typeCondition, context) {
+         false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_4__["invariant"])(this.isReady, 'FragmentMatcher.match() was called before FragmentMatcher.init()');
+        var obj = context.store.get(idValue.id);
+        var isRootQuery = idValue.id === 'ROOT_QUERY';
+        if (!obj) {
+            return isRootQuery;
+        }
+        var _a = obj.__typename, __typename = _a === void 0 ? isRootQuery && 'Query' : _a;
+         false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_4__["invariant"])(__typename, "Cannot match fragment because __typename property is missing: " + JSON.stringify(obj));
+        if (__typename === typeCondition) {
+            return true;
+        }
+        var implementingTypes = this.possibleTypesMap[typeCondition];
+        if (__typename &&
+            implementingTypes &&
+            implementingTypes.indexOf(__typename) > -1) {
+            return true;
+        }
+        return false;
+    };
+    IntrospectionFragmentMatcher.prototype.parseIntrospectionResult = function (introspectionResultData) {
+        var typeMap = {};
+        introspectionResultData.__schema.types.forEach(function (type) {
+            if (type.kind === 'UNION' || type.kind === 'INTERFACE') {
+                typeMap[type.name] = type.possibleTypes.map(function (implementingType) { return implementingType.name; });
+            }
+        });
+        return typeMap;
+    };
+    return IntrospectionFragmentMatcher;
+}());
+
 var hasOwn = Object.prototype.hasOwnProperty;
 var DepTrackingCache = (function () {
     function DepTrackingCache(data) {
         var _this = this;
         if (data === void 0) { data = Object.create(null); }
         this.data = data;
-        this.depend = optimism_1.wrap(function (dataId) { return _this.data[dataId]; }, {
+        this.depend = Object(optimism__WEBPACK_IMPORTED_MODULE_3__["wrap"])(function (dataId) { return _this.data[dataId]; }, {
             disposable: true,
             makeCacheKey: function (dataId) {
                 return dataId;
@@ -2113,557 +2240,54 @@ var DepTrackingCache = (function () {
     };
     return DepTrackingCache;
 }());
-exports.DepTrackingCache = DepTrackingCache;
 function defaultNormalizedCacheFactory(seed) {
     return new DepTrackingCache(seed);
 }
-exports.defaultNormalizedCacheFactory = defaultNormalizedCacheFactory;
-//# sourceMappingURL=depTrackingCache.js.map
 
-/***/ }),
-
-/***/ "./node_modules/apollo-cache-inmemory/lib/fixPolyfills.js":
-/*!****************************************************************!*\
-  !*** ./node_modules/apollo-cache-inmemory/lib/fixPolyfills.js ***!
-  \****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var testMap = new Map();
-if (testMap.set(1, 2) !== testMap) {
-    var set_1 = testMap.set;
-    Map.prototype.set = function () {
-        var args = [];
-        for (var _i = 0; _i < arguments.length; _i++) {
-            args[_i] = arguments[_i];
-        }
-        set_1.apply(this, args);
-        return this;
-    };
-}
-var testSet = new Set();
-if (testSet.add(3) !== testSet) {
-    var add_1 = testSet.add;
-    Set.prototype.add = function () {
-        var args = [];
-        for (var _i = 0; _i < arguments.length; _i++) {
-            args[_i] = arguments[_i];
-        }
-        add_1.apply(this, args);
-        return this;
-    };
-}
-var frozen = {};
-if (typeof Object.freeze === 'function') {
-    Object.freeze(frozen);
-}
-try {
-    testMap.set(frozen, frozen).delete(frozen);
-}
-catch (_a) {
-    var wrap = function (method) {
-        return method && (function (obj) {
-            try {
-                testMap.set(obj, obj).delete(obj);
-            }
-            finally {
-                return method.call(Object, obj);
-            }
-        });
-    };
-    Object.freeze = wrap(Object.freeze);
-    Object.seal = wrap(Object.seal);
-    Object.preventExtensions = wrap(Object.preventExtensions);
-}
-//# sourceMappingURL=fixPolyfills.js.map
-
-/***/ }),
-
-/***/ "./node_modules/apollo-cache-inmemory/lib/fragmentMatcher.js":
-/*!*******************************************************************!*\
-  !*** ./node_modules/apollo-cache-inmemory/lib/fragmentMatcher.js ***!
-  \*******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var apollo_utilities_1 = __webpack_require__(/*! apollo-utilities */ "./node_modules/apollo-cache-inmemory/node_modules/apollo-utilities/lib/bundle.esm.js");
-var ts_invariant_1 = __webpack_require__(/*! ts-invariant */ "./node_modules/ts-invariant/lib/invariant.esm.js");
-var haveWarned = false;
-function shouldWarn() {
-    var answer = !haveWarned;
-    if (!apollo_utilities_1.isTest()) {
-        haveWarned = true;
-    }
-    return answer;
-}
-var HeuristicFragmentMatcher = (function () {
-    function HeuristicFragmentMatcher() {
-    }
-    HeuristicFragmentMatcher.prototype.ensureReady = function () {
-        return Promise.resolve();
-    };
-    HeuristicFragmentMatcher.prototype.canBypassInit = function () {
-        return true;
-    };
-    HeuristicFragmentMatcher.prototype.match = function (idValue, typeCondition, context) {
-        var obj = context.store.get(idValue.id);
-        var isRootQuery = idValue.id === 'ROOT_QUERY';
-        if (!obj) {
-            return isRootQuery;
-        }
-        var _a = obj.__typename, __typename = _a === void 0 ? isRootQuery && 'Query' : _a;
-        if (!__typename) {
-            if (shouldWarn()) {
-                ts_invariant_1.invariant.warn("You're using fragments in your queries, but either don't have the addTypename:\n  true option set in Apollo Client, or you are trying to write a fragment to the store without the __typename.\n   Please turn on the addTypename option and include __typename when writing fragments so that Apollo Client\n   can accurately match fragments.");
-                ts_invariant_1.invariant.warn('Could not find __typename on Fragment ', typeCondition, obj);
-                ts_invariant_1.invariant.warn("DEPRECATION WARNING: using fragments without __typename is unsupported behavior " +
-                    "and will be removed in future versions of Apollo client. You should fix this and set addTypename to true now.");
-            }
-            return 'heuristic';
-        }
-        if (__typename === typeCondition) {
-            return true;
-        }
-        if (shouldWarn()) {
-            ts_invariant_1.invariant.error('You are using the simple (heuristic) fragment matcher, but your ' +
-                'queries contain union or interface types. Apollo Client will not be ' +
-                'able to accurately map fragments. To make this error go away, use ' +
-                'the `IntrospectionFragmentMatcher` as described in the docs: ' +
-                'https://www.apollographql.com/docs/react/advanced/fragments.html#fragment-matcher');
-        }
-        return 'heuristic';
-    };
-    return HeuristicFragmentMatcher;
-}());
-exports.HeuristicFragmentMatcher = HeuristicFragmentMatcher;
-var IntrospectionFragmentMatcher = (function () {
-    function IntrospectionFragmentMatcher(options) {
-        if (options && options.introspectionQueryResultData) {
-            this.possibleTypesMap = this.parseIntrospectionResult(options.introspectionQueryResultData);
-            this.isReady = true;
-        }
-        else {
-            this.isReady = false;
-        }
-        this.match = this.match.bind(this);
-    }
-    IntrospectionFragmentMatcher.prototype.match = function (idValue, typeCondition, context) {
-        ts_invariant_1.invariant(this.isReady, 'FragmentMatcher.match() was called before FragmentMatcher.init()');
-        var obj = context.store.get(idValue.id);
-        var isRootQuery = idValue.id === 'ROOT_QUERY';
-        if (!obj) {
-            return isRootQuery;
-        }
-        var _a = obj.__typename, __typename = _a === void 0 ? isRootQuery && 'Query' : _a;
-        ts_invariant_1.invariant(__typename, "Cannot match fragment because __typename property is missing: " + JSON.stringify(obj));
-        if (__typename === typeCondition) {
-            return true;
-        }
-        var implementingTypes = this.possibleTypesMap[typeCondition];
-        if (__typename &&
-            implementingTypes &&
-            implementingTypes.indexOf(__typename) > -1) {
-            return true;
-        }
-        return false;
-    };
-    IntrospectionFragmentMatcher.prototype.parseIntrospectionResult = function (introspectionResultData) {
-        var typeMap = {};
-        introspectionResultData.__schema.types.forEach(function (type) {
-            if (type.kind === 'UNION' || type.kind === 'INTERFACE') {
-                typeMap[type.name] = type.possibleTypes.map(function (implementingType) { return implementingType.name; });
-            }
-        });
-        return typeMap;
-    };
-    return IntrospectionFragmentMatcher;
-}());
-exports.IntrospectionFragmentMatcher = IntrospectionFragmentMatcher;
-//# sourceMappingURL=fragmentMatcher.js.map
-
-/***/ }),
-
-/***/ "./node_modules/apollo-cache-inmemory/lib/inMemoryCache.js":
-/*!*****************************************************************!*\
-  !*** ./node_modules/apollo-cache-inmemory/lib/inMemoryCache.js ***!
-  \*****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var tslib_1 = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-__webpack_require__(/*! ./fixPolyfills */ "./node_modules/apollo-cache-inmemory/lib/fixPolyfills.js");
-var apollo_cache_1 = __webpack_require__(/*! apollo-cache */ "./node_modules/apollo-cache-inmemory/node_modules/apollo-cache/lib/bundle.esm.js");
-var apollo_utilities_1 = __webpack_require__(/*! apollo-utilities */ "./node_modules/apollo-cache-inmemory/node_modules/apollo-utilities/lib/bundle.esm.js");
-var optimism_1 = __webpack_require__(/*! optimism */ "./node_modules/optimism/lib/bundle.esm.js");
-var ts_invariant_1 = __webpack_require__(/*! ts-invariant */ "./node_modules/ts-invariant/lib/invariant.esm.js");
-var fragmentMatcher_1 = __webpack_require__(/*! ./fragmentMatcher */ "./node_modules/apollo-cache-inmemory/lib/fragmentMatcher.js");
-var readFromStore_1 = __webpack_require__(/*! ./readFromStore */ "./node_modules/apollo-cache-inmemory/lib/readFromStore.js");
-var writeToStore_1 = __webpack_require__(/*! ./writeToStore */ "./node_modules/apollo-cache-inmemory/lib/writeToStore.js");
-var depTrackingCache_1 = __webpack_require__(/*! ./depTrackingCache */ "./node_modules/apollo-cache-inmemory/lib/depTrackingCache.js");
-var optimism_2 = __webpack_require__(/*! optimism */ "./node_modules/optimism/lib/bundle.esm.js");
-var objectCache_1 = __webpack_require__(/*! ./objectCache */ "./node_modules/apollo-cache-inmemory/lib/objectCache.js");
-var defaultConfig = {
-    fragmentMatcher: new fragmentMatcher_1.HeuristicFragmentMatcher(),
-    dataIdFromObject: defaultDataIdFromObject,
-    addTypename: true,
-    resultCaching: true,
-    freezeResults: false,
-};
-function defaultDataIdFromObject(result) {
-    if (result.__typename) {
-        if (result.id !== undefined) {
-            return result.__typename + ":" + result.id;
-        }
-        if (result._id !== undefined) {
-            return result.__typename + ":" + result._id;
-        }
-    }
-    return null;
-}
-exports.defaultDataIdFromObject = defaultDataIdFromObject;
-var hasOwn = Object.prototype.hasOwnProperty;
-var OptimisticCacheLayer = (function (_super) {
-    tslib_1.__extends(OptimisticCacheLayer, _super);
-    function OptimisticCacheLayer(optimisticId, parent, transaction) {
-        var _this = _super.call(this, Object.create(null)) || this;
-        _this.optimisticId = optimisticId;
-        _this.parent = parent;
-        _this.transaction = transaction;
-        return _this;
-    }
-    OptimisticCacheLayer.prototype.toObject = function () {
-        return tslib_1.__assign({}, this.parent.toObject(), this.data);
-    };
-    OptimisticCacheLayer.prototype.get = function (dataId) {
-        return hasOwn.call(this.data, dataId)
-            ? this.data[dataId]
-            : this.parent.get(dataId);
-    };
-    return OptimisticCacheLayer;
-}(objectCache_1.ObjectCache));
-exports.OptimisticCacheLayer = OptimisticCacheLayer;
-var InMemoryCache = (function (_super) {
-    tslib_1.__extends(InMemoryCache, _super);
-    function InMemoryCache(config) {
-        if (config === void 0) { config = {}; }
-        var _this = _super.call(this) || this;
-        _this.watches = new Set();
-        _this.typenameDocumentCache = new Map();
-        _this.cacheKeyRoot = new optimism_2.KeyTrie(apollo_utilities_1.canUseWeakMap);
-        _this.silenceBroadcast = false;
-        _this.config = tslib_1.__assign({}, defaultConfig, config);
-        if (_this.config.customResolvers) {
-            ts_invariant_1.invariant.warn('customResolvers have been renamed to cacheRedirects. Please update your config as we will be deprecating customResolvers in the next major version.');
-            _this.config.cacheRedirects = _this.config.customResolvers;
-        }
-        if (_this.config.cacheResolvers) {
-            ts_invariant_1.invariant.warn('cacheResolvers have been renamed to cacheRedirects. Please update your config as we will be deprecating cacheResolvers in the next major version.');
-            _this.config.cacheRedirects = _this.config.cacheResolvers;
-        }
-        _this.addTypename = !!_this.config.addTypename;
-        _this.data = _this.config.resultCaching
-            ? new depTrackingCache_1.DepTrackingCache()
-            : new objectCache_1.ObjectCache();
-        _this.optimisticData = _this.data;
-        _this.storeWriter = new writeToStore_1.StoreWriter();
-        _this.storeReader = new readFromStore_1.StoreReader({
-            cacheKeyRoot: _this.cacheKeyRoot,
-            freezeResults: config.freezeResults,
-        });
-        var cache = _this;
-        var maybeBroadcastWatch = cache.maybeBroadcastWatch;
-        _this.maybeBroadcastWatch = optimism_1.wrap(function (c) {
-            return maybeBroadcastWatch.call(_this, c);
-        }, {
-            makeCacheKey: function (c) {
-                if (c.optimistic) {
-                    return;
-                }
-                if (c.previousResult) {
-                    return;
-                }
-                if (cache.data instanceof depTrackingCache_1.DepTrackingCache) {
-                    return cache.cacheKeyRoot.lookup(c.query, JSON.stringify(c.variables));
-                }
-            }
-        });
-        return _this;
-    }
-    InMemoryCache.prototype.restore = function (data) {
-        if (data)
-            this.data.replace(data);
-        return this;
-    };
-    InMemoryCache.prototype.extract = function (optimistic) {
-        if (optimistic === void 0) { optimistic = false; }
-        return (optimistic ? this.optimisticData : this.data).toObject();
-    };
-    InMemoryCache.prototype.read = function (options) {
-        if (typeof options.rootId === 'string' &&
-            typeof this.data.get(options.rootId) === 'undefined') {
-            return null;
-        }
-        var fragmentMatcher = this.config.fragmentMatcher;
-        var fragmentMatcherFunction = fragmentMatcher && fragmentMatcher.match;
-        return this.storeReader.readQueryFromStore({
-            store: options.optimistic ? this.optimisticData : this.data,
-            query: this.transformDocument(options.query),
-            variables: options.variables,
-            rootId: options.rootId,
-            fragmentMatcherFunction: fragmentMatcherFunction,
-            previousResult: options.previousResult,
-            config: this.config,
-        }) || null;
-    };
-    InMemoryCache.prototype.write = function (write) {
-        var fragmentMatcher = this.config.fragmentMatcher;
-        var fragmentMatcherFunction = fragmentMatcher && fragmentMatcher.match;
-        this.storeWriter.writeResultToStore({
-            dataId: write.dataId,
-            result: write.result,
-            variables: write.variables,
-            document: this.transformDocument(write.query),
-            store: this.data,
-            dataIdFromObject: this.config.dataIdFromObject,
-            fragmentMatcherFunction: fragmentMatcherFunction,
-        });
-        this.broadcastWatches();
-    };
-    InMemoryCache.prototype.diff = function (query) {
-        var fragmentMatcher = this.config.fragmentMatcher;
-        var fragmentMatcherFunction = fragmentMatcher && fragmentMatcher.match;
-        return this.storeReader.diffQueryAgainstStore({
-            store: query.optimistic ? this.optimisticData : this.data,
-            query: this.transformDocument(query.query),
-            variables: query.variables,
-            returnPartialData: query.returnPartialData,
-            previousResult: query.previousResult,
-            fragmentMatcherFunction: fragmentMatcherFunction,
-            config: this.config,
-        });
-    };
-    InMemoryCache.prototype.watch = function (watch) {
-        var _this = this;
-        this.watches.add(watch);
-        return function () {
-            _this.watches.delete(watch);
-        };
-    };
-    InMemoryCache.prototype.evict = function (query) {
-        throw new ts_invariant_1.InvariantError("eviction is not implemented on InMemory Cache");
-    };
-    InMemoryCache.prototype.reset = function () {
-        this.data.clear();
-        this.broadcastWatches();
-        return Promise.resolve();
-    };
-    InMemoryCache.prototype.removeOptimistic = function (idToRemove) {
-        var toReapply = [];
-        var removedCount = 0;
-        var layer = this.optimisticData;
-        while (layer instanceof OptimisticCacheLayer) {
-            if (layer.optimisticId === idToRemove) {
-                ++removedCount;
-            }
-            else {
-                toReapply.push(layer);
-            }
-            layer = layer.parent;
-        }
-        if (removedCount > 0) {
-            this.optimisticData = layer;
-            while (toReapply.length > 0) {
-                var layer_1 = toReapply.pop();
-                this.performTransaction(layer_1.transaction, layer_1.optimisticId);
-            }
-            this.broadcastWatches();
-        }
-    };
-    InMemoryCache.prototype.performTransaction = function (transaction, optimisticId) {
-        var _a = this, data = _a.data, silenceBroadcast = _a.silenceBroadcast;
-        this.silenceBroadcast = true;
-        if (typeof optimisticId === 'string') {
-            this.data = this.optimisticData = new OptimisticCacheLayer(optimisticId, this.optimisticData, transaction);
-        }
-        try {
-            transaction(this);
-        }
-        finally {
-            this.silenceBroadcast = silenceBroadcast;
-            this.data = data;
-        }
-        this.broadcastWatches();
-    };
-    InMemoryCache.prototype.recordOptimisticTransaction = function (transaction, id) {
-        return this.performTransaction(transaction, id);
-    };
-    InMemoryCache.prototype.transformDocument = function (document) {
-        if (this.addTypename) {
-            var result = this.typenameDocumentCache.get(document);
-            if (!result) {
-                result = apollo_utilities_1.addTypenameToDocument(document);
-                this.typenameDocumentCache.set(document, result);
-                this.typenameDocumentCache.set(result, result);
-            }
-            return result;
-        }
-        return document;
-    };
-    InMemoryCache.prototype.broadcastWatches = function () {
-        var _this = this;
-        if (!this.silenceBroadcast) {
-            this.watches.forEach(function (c) { return _this.maybeBroadcastWatch(c); });
-        }
-    };
-    InMemoryCache.prototype.maybeBroadcastWatch = function (c) {
-        c.callback(this.diff({
-            query: c.query,
-            variables: c.variables,
-            previousResult: c.previousResult && c.previousResult(),
-            optimistic: c.optimistic,
-        }));
-    };
-    return InMemoryCache;
-}(apollo_cache_1.ApolloCache));
-exports.InMemoryCache = InMemoryCache;
-//# sourceMappingURL=inMemoryCache.js.map
-
-/***/ }),
-
-/***/ "./node_modules/apollo-cache-inmemory/lib/index.js":
-/*!*********************************************************!*\
-  !*** ./node_modules/apollo-cache-inmemory/lib/index.js ***!
-  \*********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var tslib_1 = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-var inMemoryCache_1 = __webpack_require__(/*! ./inMemoryCache */ "./node_modules/apollo-cache-inmemory/lib/inMemoryCache.js");
-exports.InMemoryCache = inMemoryCache_1.InMemoryCache;
-exports.defaultDataIdFromObject = inMemoryCache_1.defaultDataIdFromObject;
-tslib_1.__exportStar(__webpack_require__(/*! ./readFromStore */ "./node_modules/apollo-cache-inmemory/lib/readFromStore.js"), exports);
-tslib_1.__exportStar(__webpack_require__(/*! ./writeToStore */ "./node_modules/apollo-cache-inmemory/lib/writeToStore.js"), exports);
-tslib_1.__exportStar(__webpack_require__(/*! ./fragmentMatcher */ "./node_modules/apollo-cache-inmemory/lib/fragmentMatcher.js"), exports);
-tslib_1.__exportStar(__webpack_require__(/*! ./objectCache */ "./node_modules/apollo-cache-inmemory/lib/objectCache.js"), exports);
-//# sourceMappingURL=index.js.map
-
-/***/ }),
-
-/***/ "./node_modules/apollo-cache-inmemory/lib/objectCache.js":
-/*!***************************************************************!*\
-  !*** ./node_modules/apollo-cache-inmemory/lib/objectCache.js ***!
-  \***************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var ObjectCache = (function () {
-    function ObjectCache(data) {
-        if (data === void 0) { data = Object.create(null); }
-        this.data = data;
-    }
-    ObjectCache.prototype.toObject = function () {
-        return this.data;
-    };
-    ObjectCache.prototype.get = function (dataId) {
-        return this.data[dataId];
-    };
-    ObjectCache.prototype.set = function (dataId, value) {
-        this.data[dataId] = value;
-    };
-    ObjectCache.prototype.delete = function (dataId) {
-        this.data[dataId] = void 0;
-    };
-    ObjectCache.prototype.clear = function () {
-        this.data = Object.create(null);
-    };
-    ObjectCache.prototype.replace = function (newData) {
-        this.data = newData || Object.create(null);
-    };
-    return ObjectCache;
-}());
-exports.ObjectCache = ObjectCache;
-function defaultNormalizedCacheFactory(seed) {
-    return new ObjectCache(seed);
-}
-exports.defaultNormalizedCacheFactory = defaultNormalizedCacheFactory;
-//# sourceMappingURL=objectCache.js.map
-
-/***/ }),
-
-/***/ "./node_modules/apollo-cache-inmemory/lib/readFromStore.js":
-/*!*****************************************************************!*\
-  !*** ./node_modules/apollo-cache-inmemory/lib/readFromStore.js ***!
-  \*****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var tslib_1 = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-var apollo_utilities_1 = __webpack_require__(/*! apollo-utilities */ "./node_modules/apollo-cache-inmemory/node_modules/apollo-utilities/lib/bundle.esm.js");
-var optimism_1 = __webpack_require__(/*! optimism */ "./node_modules/optimism/lib/bundle.esm.js");
-var depTrackingCache_1 = __webpack_require__(/*! ./depTrackingCache */ "./node_modules/apollo-cache-inmemory/lib/depTrackingCache.js");
-var ts_invariant_1 = __webpack_require__(/*! ts-invariant */ "./node_modules/ts-invariant/lib/invariant.esm.js");
 var StoreReader = (function () {
     function StoreReader(_a) {
         var _this = this;
-        var _b = _a === void 0 ? {} : _a, _c = _b.cacheKeyRoot, cacheKeyRoot = _c === void 0 ? new optimism_1.KeyTrie(apollo_utilities_1.canUseWeakMap) : _c, _d = _b.freezeResults, freezeResults = _d === void 0 ? false : _d;
+        var _b = _a === void 0 ? {} : _a, _c = _b.cacheKeyRoot, cacheKeyRoot = _c === void 0 ? new optimism__WEBPACK_IMPORTED_MODULE_3__["KeyTrie"](apollo_utilities__WEBPACK_IMPORTED_MODULE_2__["canUseWeakMap"]) : _c, _d = _b.freezeResults, freezeResults = _d === void 0 ? false : _d;
         var _e = this, executeStoreQuery = _e.executeStoreQuery, executeSelectionSet = _e.executeSelectionSet, executeSubSelectedArray = _e.executeSubSelectedArray;
         this.freezeResults = freezeResults;
-        this.executeStoreQuery = optimism_1.wrap(function (options) {
+        this.executeStoreQuery = Object(optimism__WEBPACK_IMPORTED_MODULE_3__["wrap"])(function (options) {
             return executeStoreQuery.call(_this, options);
         }, {
             makeCacheKey: function (_a) {
                 var query = _a.query, rootValue = _a.rootValue, contextValue = _a.contextValue, variableValues = _a.variableValues, fragmentMatcher = _a.fragmentMatcher;
-                if (contextValue.store instanceof depTrackingCache_1.DepTrackingCache) {
+                if (contextValue.store instanceof DepTrackingCache) {
                     return cacheKeyRoot.lookup(contextValue.store, query, fragmentMatcher, JSON.stringify(variableValues), rootValue.id);
                 }
             }
         });
-        this.executeSelectionSet = optimism_1.wrap(function (options) {
+        this.executeSelectionSet = Object(optimism__WEBPACK_IMPORTED_MODULE_3__["wrap"])(function (options) {
             return executeSelectionSet.call(_this, options);
         }, {
             makeCacheKey: function (_a) {
                 var selectionSet = _a.selectionSet, rootValue = _a.rootValue, execContext = _a.execContext;
-                if (execContext.contextValue.store instanceof depTrackingCache_1.DepTrackingCache) {
+                if (execContext.contextValue.store instanceof DepTrackingCache) {
                     return cacheKeyRoot.lookup(execContext.contextValue.store, selectionSet, execContext.fragmentMatcher, JSON.stringify(execContext.variableValues), rootValue.id);
                 }
             }
         });
-        this.executeSubSelectedArray = optimism_1.wrap(function (options) {
+        this.executeSubSelectedArray = Object(optimism__WEBPACK_IMPORTED_MODULE_3__["wrap"])(function (options) {
             return executeSubSelectedArray.call(_this, options);
         }, {
             makeCacheKey: function (_a) {
                 var field = _a.field, array = _a.array, execContext = _a.execContext;
-                if (execContext.contextValue.store instanceof depTrackingCache_1.DepTrackingCache) {
+                if (execContext.contextValue.store instanceof DepTrackingCache) {
                     return cacheKeyRoot.lookup(execContext.contextValue.store, field, array, JSON.stringify(execContext.variableValues));
                 }
             }
         });
     }
     StoreReader.prototype.readQueryFromStore = function (options) {
-        return this.diffQueryAgainstStore(tslib_1.__assign({}, options, { returnPartialData: false })).result;
+        return this.diffQueryAgainstStore(Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, options, { returnPartialData: false })).result;
     };
     StoreReader.prototype.diffQueryAgainstStore = function (_a) {
         var store = _a.store, query = _a.query, variables = _a.variables, previousResult = _a.previousResult, _b = _a.returnPartialData, returnPartialData = _b === void 0 ? true : _b, _c = _a.rootId, rootId = _c === void 0 ? 'ROOT_QUERY' : _c, fragmentMatcherFunction = _a.fragmentMatcherFunction, config = _a.config;
-        var queryDefinition = apollo_utilities_1.getQueryDefinition(query);
-        variables = apollo_utilities_1.assign({}, apollo_utilities_1.getDefaultValues(queryDefinition), variables);
+        var queryDefinition = Object(apollo_utilities__WEBPACK_IMPORTED_MODULE_2__["getQueryDefinition"])(query);
+        variables = Object(apollo_utilities__WEBPACK_IMPORTED_MODULE_2__["assign"])({}, Object(apollo_utilities__WEBPACK_IMPORTED_MODULE_2__["getDefaultValues"])(queryDefinition), variables);
         var context = {
             store: store,
             dataIdFromObject: config && config.dataIdFromObject,
@@ -2686,11 +2310,11 @@ var StoreReader = (function () {
             execResult.missing.forEach(function (info) {
                 if (info.tolerable)
                     return;
-                throw new ts_invariant_1.InvariantError("Can't find field " + info.fieldName + " on object " + JSON.stringify(info.object, null, 2) + ".");
+                throw  false ? undefined : new ts_invariant__WEBPACK_IMPORTED_MODULE_4__["InvariantError"]("Can't find field " + info.fieldName + " on object " + JSON.stringify(info.object, null, 2) + ".");
             });
         }
         if (previousResult) {
-            if (apollo_utilities_1.isEqual(previousResult, execResult.result)) {
+            if (Object(apollo_utilities__WEBPACK_IMPORTED_MODULE_2__["isEqual"])(previousResult, execResult.result)) {
                 execResult.result = previousResult;
             }
         }
@@ -2701,9 +2325,9 @@ var StoreReader = (function () {
     };
     StoreReader.prototype.executeStoreQuery = function (_a) {
         var query = _a.query, rootValue = _a.rootValue, contextValue = _a.contextValue, variableValues = _a.variableValues, _b = _a.fragmentMatcher, fragmentMatcher = _b === void 0 ? defaultFragmentMatcher : _b;
-        var mainDefinition = apollo_utilities_1.getMainDefinition(query);
-        var fragments = apollo_utilities_1.getFragmentDefinitions(query);
-        var fragmentMap = apollo_utilities_1.createFragmentMap(fragments);
+        var mainDefinition = Object(apollo_utilities__WEBPACK_IMPORTED_MODULE_2__["getMainDefinition"])(query);
+        var fragments = Object(apollo_utilities__WEBPACK_IMPORTED_MODULE_2__["getFragmentDefinitions"])(query);
+        var fragmentMap = Object(apollo_utilities__WEBPACK_IMPORTED_MODULE_2__["createFragmentMap"])(fragments);
         var execContext = {
             query: query,
             fragmentMap: fragmentMap,
@@ -2737,26 +2361,26 @@ var StoreReader = (function () {
         }
         selectionSet.selections.forEach(function (selection) {
             var _a;
-            if (!apollo_utilities_1.shouldInclude(selection, variables)) {
+            if (!Object(apollo_utilities__WEBPACK_IMPORTED_MODULE_2__["shouldInclude"])(selection, variables)) {
                 return;
             }
-            if (apollo_utilities_1.isField(selection)) {
+            if (Object(apollo_utilities__WEBPACK_IMPORTED_MODULE_2__["isField"])(selection)) {
                 var fieldResult = handleMissing(_this.executeField(object, typename, selection, execContext));
                 if (typeof fieldResult !== 'undefined') {
                     objectsToMerge.push((_a = {},
-                        _a[apollo_utilities_1.resultKeyNameFromField(selection)] = fieldResult,
+                        _a[Object(apollo_utilities__WEBPACK_IMPORTED_MODULE_2__["resultKeyNameFromField"])(selection)] = fieldResult,
                         _a));
                 }
             }
             else {
                 var fragment = void 0;
-                if (apollo_utilities_1.isInlineFragment(selection)) {
+                if (Object(apollo_utilities__WEBPACK_IMPORTED_MODULE_2__["isInlineFragment"])(selection)) {
                     fragment = selection;
                 }
                 else {
                     fragment = fragmentMap[selection.name.value];
                     if (!fragment) {
-                        throw new ts_invariant_1.InvariantError("No fragment named " + selection.name.value);
+                        throw  false ? undefined : new ts_invariant__WEBPACK_IMPORTED_MODULE_4__["InvariantError"]("No fragment named " + selection.name.value);
                     }
                 }
                 var typeCondition = fragment.typeCondition && fragment.typeCondition.name.value;
@@ -2769,15 +2393,15 @@ var StoreReader = (function () {
                         execContext: execContext,
                     });
                     if (match === 'heuristic' && fragmentExecResult.missing) {
-                        fragmentExecResult = tslib_1.__assign({}, fragmentExecResult, { missing: fragmentExecResult.missing.map(function (info) {
-                                return tslib_1.__assign({}, info, { tolerable: true });
+                        fragmentExecResult = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, fragmentExecResult, { missing: fragmentExecResult.missing.map(function (info) {
+                                return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, info, { tolerable: true });
                             }) });
                     }
                     objectsToMerge.push(handleMissing(fragmentExecResult));
                 }
             }
         });
-        finalResult.result = apollo_utilities_1.mergeDeepArray(objectsToMerge);
+        finalResult.result = Object(apollo_utilities__WEBPACK_IMPORTED_MODULE_2__["mergeDeepArray"])(objectsToMerge);
         if (this.freezeResults && "development" !== 'production') {
             Object.freeze(finalResult.result);
         }
@@ -2786,10 +2410,10 @@ var StoreReader = (function () {
     StoreReader.prototype.executeField = function (object, typename, field, execContext) {
         var variables = execContext.variableValues, contextValue = execContext.contextValue;
         var fieldName = field.name.value;
-        var args = apollo_utilities_1.argumentsObjectFromField(field, variables);
+        var args = Object(apollo_utilities__WEBPACK_IMPORTED_MODULE_2__["argumentsObjectFromField"])(field, variables);
         var info = {
-            resultKey: apollo_utilities_1.resultKeyNameFromField(field),
-            directives: apollo_utilities_1.getDirectiveInfoFromField(field, variables),
+            resultKey: Object(apollo_utilities__WEBPACK_IMPORTED_MODULE_2__["resultKeyNameFromField"])(field),
+            directives: Object(apollo_utilities__WEBPACK_IMPORTED_MODULE_2__["getDirectiveInfoFromField"])(field, variables),
         };
         var readStoreResult = readStoreResolver(object, typename, fieldName, args, contextValue, info);
         if (Array.isArray(readStoreResult.result)) {
@@ -2802,7 +2426,7 @@ var StoreReader = (function () {
         if (!field.selectionSet) {
             assertSelectionSetForIdValue(field, readStoreResult.result);
             if (this.freezeResults && "development" !== 'production') {
-                apollo_utilities_1.maybeDeepFreeze(readStoreResult);
+                Object(apollo_utilities__WEBPACK_IMPORTED_MODULE_2__["maybeDeepFreeze"])(readStoreResult);
             }
             return readStoreResult;
         }
@@ -2871,24 +2495,22 @@ var StoreReader = (function () {
     };
     return StoreReader;
 }());
-exports.StoreReader = StoreReader;
 function assertSelectionSetForIdValue(field, value) {
-    if (!field.selectionSet && apollo_utilities_1.isIdValue(value)) {
-        throw new ts_invariant_1.InvariantError("Missing selection set for object of type " + value.typename + " returned for query field " + field.name.value);
+    if (!field.selectionSet && Object(apollo_utilities__WEBPACK_IMPORTED_MODULE_2__["isIdValue"])(value)) {
+        throw  false ? undefined : new ts_invariant__WEBPACK_IMPORTED_MODULE_4__["InvariantError"]("Missing selection set for object of type " + value.typename + " returned for query field " + field.name.value);
     }
 }
 function defaultFragmentMatcher() {
     return true;
 }
 function assertIdValue(idValue) {
-    ts_invariant_1.invariant(apollo_utilities_1.isIdValue(idValue), "Encountered a sub-selection on the query, but the store doesn't have an object reference. This should never happen during normal use unless you have custom code that is directly manipulating the store; please file an issue.");
+     false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_4__["invariant"])(Object(apollo_utilities__WEBPACK_IMPORTED_MODULE_2__["isIdValue"])(idValue), "Encountered a sub-selection on the query, but the store doesn't have an object reference. This should never happen during normal use unless you have custom code that is directly manipulating the store; please file an issue.");
 }
-exports.assertIdValue = assertIdValue;
 function readStoreResolver(object, typename, fieldName, args, context, _a) {
     var resultKey = _a.resultKey, directives = _a.directives;
     var storeKeyName = fieldName;
     if (args || directives) {
-        storeKeyName = apollo_utilities_1.getStoreKeyName(storeKeyName, args, directives);
+        storeKeyName = Object(apollo_utilities__WEBPACK_IMPORTED_MODULE_2__["getStoreKeyName"])(storeKeyName, args, directives);
     }
     var fieldValue = void 0;
     if (object) {
@@ -2903,7 +2525,7 @@ function readStoreResolver(object, typename, fieldName, args, context, _a) {
                     fieldValue = resolver(object, args, {
                         getCacheKey: function (storeObj) {
                             var id = context.dataIdFromObject(storeObj);
-                            return id && apollo_utilities_1.toIdValue({
+                            return id && Object(apollo_utilities__WEBPACK_IMPORTED_MODULE_2__["toIdValue"])({
                                 id: id,
                                 typename: storeObj.__typename,
                             });
@@ -2923,34 +2545,45 @@ function readStoreResolver(object, typename, fieldName, args, context, _a) {
                 }],
         };
     }
-    if (apollo_utilities_1.isJsonValue(fieldValue)) {
+    if (Object(apollo_utilities__WEBPACK_IMPORTED_MODULE_2__["isJsonValue"])(fieldValue)) {
         fieldValue = fieldValue.json;
     }
     return {
         result: fieldValue,
     };
 }
-//# sourceMappingURL=readFromStore.js.map
 
-/***/ }),
+var ObjectCache = (function () {
+    function ObjectCache(data) {
+        if (data === void 0) { data = Object.create(null); }
+        this.data = data;
+    }
+    ObjectCache.prototype.toObject = function () {
+        return this.data;
+    };
+    ObjectCache.prototype.get = function (dataId) {
+        return this.data[dataId];
+    };
+    ObjectCache.prototype.set = function (dataId, value) {
+        this.data[dataId] = value;
+    };
+    ObjectCache.prototype.delete = function (dataId) {
+        this.data[dataId] = void 0;
+    };
+    ObjectCache.prototype.clear = function () {
+        this.data = Object.create(null);
+    };
+    ObjectCache.prototype.replace = function (newData) {
+        this.data = newData || Object.create(null);
+    };
+    return ObjectCache;
+}());
+function defaultNormalizedCacheFactory$1(seed) {
+    return new ObjectCache(seed);
+}
 
-/***/ "./node_modules/apollo-cache-inmemory/lib/writeToStore.js":
-/*!****************************************************************!*\
-  !*** ./node_modules/apollo-cache-inmemory/lib/writeToStore.js ***!
-  \****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var tslib_1 = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-var apollo_utilities_1 = __webpack_require__(/*! apollo-utilities */ "./node_modules/apollo-cache-inmemory/node_modules/apollo-utilities/lib/bundle.esm.js");
-var ts_invariant_1 = __webpack_require__(/*! ts-invariant */ "./node_modules/ts-invariant/lib/invariant.esm.js");
-var objectCache_1 = __webpack_require__(/*! ./objectCache */ "./node_modules/apollo-cache-inmemory/lib/objectCache.js");
-var depTrackingCache_1 = __webpack_require__(/*! ./depTrackingCache */ "./node_modules/apollo-cache-inmemory/lib/depTrackingCache.js");
 var WriteError = (function (_super) {
-    tslib_1.__extends(WriteError, _super);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"])(WriteError, _super);
     function WriteError() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.type = 'WriteError';
@@ -2958,19 +2591,17 @@ var WriteError = (function (_super) {
     }
     return WriteError;
 }(Error));
-exports.WriteError = WriteError;
 function enhanceErrorWithDocument(error, document) {
     var enhancedError = new WriteError("Error writing result to store for query:\n " + JSON.stringify(document));
     enhancedError.message += '\n' + error.message;
     enhancedError.stack = error.stack;
     return enhancedError;
 }
-exports.enhanceErrorWithDocument = enhanceErrorWithDocument;
 var StoreWriter = (function () {
     function StoreWriter() {
     }
     StoreWriter.prototype.writeQueryToStore = function (_a) {
-        var query = _a.query, result = _a.result, _b = _a.store, store = _b === void 0 ? depTrackingCache_1.defaultNormalizedCacheFactory() : _b, variables = _a.variables, dataIdFromObject = _a.dataIdFromObject, fragmentMatcherFunction = _a.fragmentMatcherFunction;
+        var query = _a.query, result = _a.result, _b = _a.store, store = _b === void 0 ? defaultNormalizedCacheFactory() : _b, variables = _a.variables, dataIdFromObject = _a.dataIdFromObject, fragmentMatcherFunction = _a.fragmentMatcherFunction;
         return this.writeResultToStore({
             dataId: 'ROOT_QUERY',
             result: result,
@@ -2982,8 +2613,8 @@ var StoreWriter = (function () {
         });
     };
     StoreWriter.prototype.writeResultToStore = function (_a) {
-        var dataId = _a.dataId, result = _a.result, document = _a.document, _b = _a.store, store = _b === void 0 ? depTrackingCache_1.defaultNormalizedCacheFactory() : _b, variables = _a.variables, dataIdFromObject = _a.dataIdFromObject, fragmentMatcherFunction = _a.fragmentMatcherFunction;
-        var operationDefinition = apollo_utilities_1.getOperationDefinition(document);
+        var dataId = _a.dataId, result = _a.result, document = _a.document, _b = _a.store, store = _b === void 0 ? defaultNormalizedCacheFactory() : _b, variables = _a.variables, dataIdFromObject = _a.dataIdFromObject, fragmentMatcherFunction = _a.fragmentMatcherFunction;
+        var operationDefinition = Object(apollo_utilities__WEBPACK_IMPORTED_MODULE_2__["getOperationDefinition"])(document);
         try {
             return this.writeSelectionSetToStore({
                 result: result,
@@ -2992,9 +2623,9 @@ var StoreWriter = (function () {
                 context: {
                     store: store,
                     processedData: {},
-                    variables: apollo_utilities_1.assign({}, apollo_utilities_1.getDefaultValues(operationDefinition), variables),
+                    variables: Object(apollo_utilities__WEBPACK_IMPORTED_MODULE_2__["assign"])({}, Object(apollo_utilities__WEBPACK_IMPORTED_MODULE_2__["getDefaultValues"])(operationDefinition), variables),
                     dataIdFromObject: dataIdFromObject,
-                    fragmentMap: apollo_utilities_1.createFragmentMap(apollo_utilities_1.getFragmentDefinitions(document)),
+                    fragmentMap: Object(apollo_utilities__WEBPACK_IMPORTED_MODULE_2__["createFragmentMap"])(Object(apollo_utilities__WEBPACK_IMPORTED_MODULE_2__["getFragmentDefinitions"])(document)),
                     fragmentMatcherFunction: fragmentMatcherFunction,
                 },
             });
@@ -3009,11 +2640,11 @@ var StoreWriter = (function () {
         var variables = context.variables, store = context.store, fragmentMap = context.fragmentMap;
         selectionSet.selections.forEach(function (selection) {
             var _a;
-            if (!apollo_utilities_1.shouldInclude(selection, variables)) {
+            if (!Object(apollo_utilities__WEBPACK_IMPORTED_MODULE_2__["shouldInclude"])(selection, variables)) {
                 return;
             }
-            if (apollo_utilities_1.isField(selection)) {
-                var resultFieldKey = apollo_utilities_1.resultKeyNameFromField(selection);
+            if (Object(apollo_utilities__WEBPACK_IMPORTED_MODULE_2__["isField"])(selection)) {
+                var resultFieldKey = Object(apollo_utilities__WEBPACK_IMPORTED_MODULE_2__["resultKeyNameFromField"])(selection);
                 var value = result[resultFieldKey];
                 if (typeof value !== 'undefined') {
                     _this.writeFieldToStore({
@@ -3031,30 +2662,30 @@ var StoreWriter = (function () {
                         isClient = selection.directives.some(function (directive) { return directive.name && directive.name.value === 'client'; });
                     }
                     if (!isDefered && !isClient && context.fragmentMatcherFunction) {
-                        ts_invariant_1.invariant.warn("Missing field " + resultFieldKey + " in " + JSON.stringify(result, null, 2).substring(0, 100));
+                        "development" === "production" || ts_invariant__WEBPACK_IMPORTED_MODULE_4__["invariant"].warn("Missing field " + resultFieldKey + " in " + JSON.stringify(result, null, 2).substring(0, 100));
                     }
                 }
             }
             else {
                 var fragment = void 0;
-                if (apollo_utilities_1.isInlineFragment(selection)) {
+                if (Object(apollo_utilities__WEBPACK_IMPORTED_MODULE_2__["isInlineFragment"])(selection)) {
                     fragment = selection;
                 }
                 else {
                     fragment = (fragmentMap || {})[selection.name.value];
-                    ts_invariant_1.invariant(fragment, "No fragment named " + selection.name.value + ".");
+                     false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_4__["invariant"])(fragment, "No fragment named " + selection.name.value + ".");
                 }
                 var matches = true;
                 if (context.fragmentMatcherFunction && fragment.typeCondition) {
                     var id = dataId || 'self';
-                    var idValue = apollo_utilities_1.toIdValue({ id: id, typename: undefined });
+                    var idValue = Object(apollo_utilities__WEBPACK_IMPORTED_MODULE_2__["toIdValue"])({ id: id, typename: undefined });
                     var fakeContext = {
-                        store: new objectCache_1.ObjectCache((_a = {}, _a[id] = result, _a)),
+                        store: new ObjectCache((_a = {}, _a[id] = result, _a)),
                         cacheRedirects: {},
                     };
                     var match = context.fragmentMatcherFunction(idValue, fragment.typeCondition.name.value, fakeContext);
-                    if (!apollo_utilities_1.isProduction() && match === 'heuristic') {
-                        ts_invariant_1.invariant.error('WARNING: heuristic fragment matching going on!');
+                    if (!Object(apollo_utilities__WEBPACK_IMPORTED_MODULE_2__["isProduction"])() && match === 'heuristic') {
+                        "development" === "production" || ts_invariant__WEBPACK_IMPORTED_MODULE_4__["invariant"].error('WARNING: heuristic fragment matching going on!');
                     }
                     matches = !!match;
                 }
@@ -3076,7 +2707,7 @@ var StoreWriter = (function () {
         var variables = context.variables, dataIdFromObject = context.dataIdFromObject, store = context.store;
         var storeValue;
         var storeObject;
-        var storeFieldName = apollo_utilities_1.storeKeyNameFromField(field, variables);
+        var storeFieldName = Object(apollo_utilities__WEBPACK_IMPORTED_MODULE_2__["storeKeyNameFromField"])(field, variables);
         if (!field.selectionSet || value === null) {
             storeValue =
                 value != null && typeof value === 'object'
@@ -3097,7 +2728,7 @@ var StoreWriter = (function () {
             }
             if (dataIdFromObject) {
                 var semanticId = dataIdFromObject(value);
-                ts_invariant_1.invariant(!semanticId || !isGeneratedId(semanticId), 'IDs returned by dataIdFromObject cannot begin with the "$" character.');
+                 false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_4__["invariant"])(!semanticId || !isGeneratedId(semanticId), 'IDs returned by dataIdFromObject cannot begin with the "$" character.');
                 if (semanticId ||
                     (typeof semanticId === 'number' && semanticId === 0)) {
                     valueDataId = semanticId;
@@ -3113,15 +2744,15 @@ var StoreWriter = (function () {
                 });
             }
             var typename = value.__typename;
-            storeValue = apollo_utilities_1.toIdValue({ id: valueDataId, typename: typename }, generated);
+            storeValue = Object(apollo_utilities__WEBPACK_IMPORTED_MODULE_2__["toIdValue"])({ id: valueDataId, typename: typename }, generated);
             storeObject = store.get(dataId);
             var escapedId = storeObject && storeObject[storeFieldName];
-            if (escapedId !== storeValue && apollo_utilities_1.isIdValue(escapedId)) {
+            if (escapedId !== storeValue && Object(apollo_utilities__WEBPACK_IMPORTED_MODULE_2__["isIdValue"])(escapedId)) {
                 var hadTypename = escapedId.typename !== undefined;
                 var hasTypename = typename !== undefined;
                 var typenameChanged = hadTypename && hasTypename && escapedId.typename !== typename;
-                ts_invariant_1.invariant(!generated || escapedId.generated || typenameChanged, "Store error: the application attempted to write an object with no provided id but the store already contains an id of " + escapedId.id + " for this object. The selectionSet that was trying to be written is:\n" + JSON.stringify(field));
-                ts_invariant_1.invariant(!hadTypename || hasTypename, "Store error: the application attempted to write an object with no provided typename but the store already contains an object with typename of " + escapedId.typename + " for the object of id " + escapedId.id + ". The selectionSet that was trying to be written is:\n" + JSON.stringify(field));
+                 false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_4__["invariant"])(!generated || escapedId.generated || typenameChanged, "Store error: the application attempted to write an object with no provided id but the store already contains an id of " + escapedId.id + " for this object. The selectionSet that was trying to be written is:\n" + JSON.stringify(field));
+                 false ? undefined : Object(ts_invariant__WEBPACK_IMPORTED_MODULE_4__["invariant"])(!hadTypename || hasTypename, "Store error: the application attempted to write an object with no provided typename but the store already contains an object with typename of " + escapedId.typename + " for the object of id " + escapedId.id + ". The selectionSet that was trying to be written is:\n" + JSON.stringify(field));
                 if (escapedId.generated) {
                     if (typenameChanged) {
                         if (!generated) {
@@ -3135,8 +2766,8 @@ var StoreWriter = (function () {
             }
         }
         storeObject = store.get(dataId);
-        if (!storeObject || !apollo_utilities_1.isEqual(storeValue, storeObject[storeFieldName])) {
-            store.set(dataId, tslib_1.__assign({}, storeObject, (_b = {}, _b[storeFieldName] = storeValue, _b)));
+        if (!storeObject || !Object(apollo_utilities__WEBPACK_IMPORTED_MODULE_2__["isEqual"])(storeValue, storeObject[storeFieldName])) {
+            store.set(dataId, Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, storeObject, (_b = {}, _b[storeFieldName] = storeValue, _b)));
         }
     };
     StoreWriter.prototype.processArrayValue = function (value, generatedId, selectionSet, context) {
@@ -3165,12 +2796,11 @@ var StoreWriter = (function () {
                     context: context,
                 });
             }
-            return apollo_utilities_1.toIdValue({ id: itemDataId, typename: item.__typename }, generated);
+            return Object(apollo_utilities__WEBPACK_IMPORTED_MODULE_2__["toIdValue"])({ id: itemDataId, typename: item.__typename }, generated);
         });
     };
     return StoreWriter;
 }());
-exports.StoreWriter = StoreWriter;
 function isGeneratedId(id) {
     return id[0] === '$';
 }
@@ -3184,17 +2814,17 @@ function mergeWithGenerated(generatedKey, realKey, cache) {
     Object.keys(generated).forEach(function (key) {
         var value = generated[key];
         var realValue = real[key];
-        if (apollo_utilities_1.isIdValue(value) &&
+        if (Object(apollo_utilities__WEBPACK_IMPORTED_MODULE_2__["isIdValue"])(value) &&
             isGeneratedId(value.id) &&
-            apollo_utilities_1.isIdValue(realValue) &&
-            !apollo_utilities_1.isEqual(value, realValue) &&
+            Object(apollo_utilities__WEBPACK_IMPORTED_MODULE_2__["isIdValue"])(realValue) &&
+            !Object(apollo_utilities__WEBPACK_IMPORTED_MODULE_2__["isEqual"])(value, realValue) &&
             mergeWithGenerated(value.id, realValue.id, cache)) {
             madeChanges = true;
         }
     });
     cache.delete(generatedKey);
-    var newRealValue = tslib_1.__assign({}, generated, real);
-    if (apollo_utilities_1.isEqual(newRealValue, real)) {
+    var newRealValue = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, generated, real);
+    if (Object(apollo_utilities__WEBPACK_IMPORTED_MODULE_2__["isEqual"])(newRealValue, real)) {
         return madeChanges;
     }
     cache.set(realKey, newRealValue);
@@ -3217,7 +2847,232 @@ function isDataProcessed(dataId, field, processedData) {
     }
     return false;
 }
-//# sourceMappingURL=writeToStore.js.map
+
+var defaultConfig = {
+    fragmentMatcher: new HeuristicFragmentMatcher(),
+    dataIdFromObject: defaultDataIdFromObject,
+    addTypename: true,
+    resultCaching: true,
+    freezeResults: false,
+};
+function defaultDataIdFromObject(result) {
+    if (result.__typename) {
+        if (result.id !== undefined) {
+            return result.__typename + ":" + result.id;
+        }
+        if (result._id !== undefined) {
+            return result.__typename + ":" + result._id;
+        }
+    }
+    return null;
+}
+var hasOwn$1 = Object.prototype.hasOwnProperty;
+var OptimisticCacheLayer = (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"])(OptimisticCacheLayer, _super);
+    function OptimisticCacheLayer(optimisticId, parent, transaction) {
+        var _this = _super.call(this, Object.create(null)) || this;
+        _this.optimisticId = optimisticId;
+        _this.parent = parent;
+        _this.transaction = transaction;
+        return _this;
+    }
+    OptimisticCacheLayer.prototype.toObject = function () {
+        return Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, this.parent.toObject(), this.data);
+    };
+    OptimisticCacheLayer.prototype.get = function (dataId) {
+        return hasOwn$1.call(this.data, dataId)
+            ? this.data[dataId]
+            : this.parent.get(dataId);
+    };
+    return OptimisticCacheLayer;
+}(ObjectCache));
+var InMemoryCache = (function (_super) {
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"])(InMemoryCache, _super);
+    function InMemoryCache(config) {
+        if (config === void 0) { config = {}; }
+        var _this = _super.call(this) || this;
+        _this.watches = new Set();
+        _this.typenameDocumentCache = new Map();
+        _this.cacheKeyRoot = new optimism__WEBPACK_IMPORTED_MODULE_3__["KeyTrie"](apollo_utilities__WEBPACK_IMPORTED_MODULE_2__["canUseWeakMap"]);
+        _this.silenceBroadcast = false;
+        _this.config = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, defaultConfig, config);
+        if (_this.config.customResolvers) {
+            "development" === "production" || ts_invariant__WEBPACK_IMPORTED_MODULE_4__["invariant"].warn('customResolvers have been renamed to cacheRedirects. Please update your config as we will be deprecating customResolvers in the next major version.');
+            _this.config.cacheRedirects = _this.config.customResolvers;
+        }
+        if (_this.config.cacheResolvers) {
+            "development" === "production" || ts_invariant__WEBPACK_IMPORTED_MODULE_4__["invariant"].warn('cacheResolvers have been renamed to cacheRedirects. Please update your config as we will be deprecating cacheResolvers in the next major version.');
+            _this.config.cacheRedirects = _this.config.cacheResolvers;
+        }
+        _this.addTypename = !!_this.config.addTypename;
+        _this.data = _this.config.resultCaching
+            ? new DepTrackingCache()
+            : new ObjectCache();
+        _this.optimisticData = _this.data;
+        _this.storeWriter = new StoreWriter();
+        _this.storeReader = new StoreReader({
+            cacheKeyRoot: _this.cacheKeyRoot,
+            freezeResults: config.freezeResults,
+        });
+        var cache = _this;
+        var maybeBroadcastWatch = cache.maybeBroadcastWatch;
+        _this.maybeBroadcastWatch = Object(optimism__WEBPACK_IMPORTED_MODULE_3__["wrap"])(function (c) {
+            return maybeBroadcastWatch.call(_this, c);
+        }, {
+            makeCacheKey: function (c) {
+                if (c.optimistic) {
+                    return;
+                }
+                if (c.previousResult) {
+                    return;
+                }
+                if (cache.data instanceof DepTrackingCache) {
+                    return cache.cacheKeyRoot.lookup(c.query, JSON.stringify(c.variables));
+                }
+            }
+        });
+        return _this;
+    }
+    InMemoryCache.prototype.restore = function (data) {
+        if (data)
+            this.data.replace(data);
+        return this;
+    };
+    InMemoryCache.prototype.extract = function (optimistic) {
+        if (optimistic === void 0) { optimistic = false; }
+        return (optimistic ? this.optimisticData : this.data).toObject();
+    };
+    InMemoryCache.prototype.read = function (options) {
+        if (typeof options.rootId === 'string' &&
+            typeof this.data.get(options.rootId) === 'undefined') {
+            return null;
+        }
+        var fragmentMatcher = this.config.fragmentMatcher;
+        var fragmentMatcherFunction = fragmentMatcher && fragmentMatcher.match;
+        return this.storeReader.readQueryFromStore({
+            store: options.optimistic ? this.optimisticData : this.data,
+            query: this.transformDocument(options.query),
+            variables: options.variables,
+            rootId: options.rootId,
+            fragmentMatcherFunction: fragmentMatcherFunction,
+            previousResult: options.previousResult,
+            config: this.config,
+        }) || null;
+    };
+    InMemoryCache.prototype.write = function (write) {
+        var fragmentMatcher = this.config.fragmentMatcher;
+        var fragmentMatcherFunction = fragmentMatcher && fragmentMatcher.match;
+        this.storeWriter.writeResultToStore({
+            dataId: write.dataId,
+            result: write.result,
+            variables: write.variables,
+            document: this.transformDocument(write.query),
+            store: this.data,
+            dataIdFromObject: this.config.dataIdFromObject,
+            fragmentMatcherFunction: fragmentMatcherFunction,
+        });
+        this.broadcastWatches();
+    };
+    InMemoryCache.prototype.diff = function (query) {
+        var fragmentMatcher = this.config.fragmentMatcher;
+        var fragmentMatcherFunction = fragmentMatcher && fragmentMatcher.match;
+        return this.storeReader.diffQueryAgainstStore({
+            store: query.optimistic ? this.optimisticData : this.data,
+            query: this.transformDocument(query.query),
+            variables: query.variables,
+            returnPartialData: query.returnPartialData,
+            previousResult: query.previousResult,
+            fragmentMatcherFunction: fragmentMatcherFunction,
+            config: this.config,
+        });
+    };
+    InMemoryCache.prototype.watch = function (watch) {
+        var _this = this;
+        this.watches.add(watch);
+        return function () {
+            _this.watches.delete(watch);
+        };
+    };
+    InMemoryCache.prototype.evict = function (query) {
+        throw  false ? undefined : new ts_invariant__WEBPACK_IMPORTED_MODULE_4__["InvariantError"]("eviction is not implemented on InMemory Cache");
+    };
+    InMemoryCache.prototype.reset = function () {
+        this.data.clear();
+        this.broadcastWatches();
+        return Promise.resolve();
+    };
+    InMemoryCache.prototype.removeOptimistic = function (idToRemove) {
+        var toReapply = [];
+        var removedCount = 0;
+        var layer = this.optimisticData;
+        while (layer instanceof OptimisticCacheLayer) {
+            if (layer.optimisticId === idToRemove) {
+                ++removedCount;
+            }
+            else {
+                toReapply.push(layer);
+            }
+            layer = layer.parent;
+        }
+        if (removedCount > 0) {
+            this.optimisticData = layer;
+            while (toReapply.length > 0) {
+                var layer_1 = toReapply.pop();
+                this.performTransaction(layer_1.transaction, layer_1.optimisticId);
+            }
+            this.broadcastWatches();
+        }
+    };
+    InMemoryCache.prototype.performTransaction = function (transaction, optimisticId) {
+        var _a = this, data = _a.data, silenceBroadcast = _a.silenceBroadcast;
+        this.silenceBroadcast = true;
+        if (typeof optimisticId === 'string') {
+            this.data = this.optimisticData = new OptimisticCacheLayer(optimisticId, this.optimisticData, transaction);
+        }
+        try {
+            transaction(this);
+        }
+        finally {
+            this.silenceBroadcast = silenceBroadcast;
+            this.data = data;
+        }
+        this.broadcastWatches();
+    };
+    InMemoryCache.prototype.recordOptimisticTransaction = function (transaction, id) {
+        return this.performTransaction(transaction, id);
+    };
+    InMemoryCache.prototype.transformDocument = function (document) {
+        if (this.addTypename) {
+            var result = this.typenameDocumentCache.get(document);
+            if (!result) {
+                result = Object(apollo_utilities__WEBPACK_IMPORTED_MODULE_2__["addTypenameToDocument"])(document);
+                this.typenameDocumentCache.set(document, result);
+                this.typenameDocumentCache.set(result, result);
+            }
+            return result;
+        }
+        return document;
+    };
+    InMemoryCache.prototype.broadcastWatches = function () {
+        var _this = this;
+        if (!this.silenceBroadcast) {
+            this.watches.forEach(function (c) { return _this.maybeBroadcastWatch(c); });
+        }
+    };
+    InMemoryCache.prototype.maybeBroadcastWatch = function (c) {
+        c.callback(this.diff({
+            query: c.query,
+            variables: c.variables,
+            previousResult: c.previousResult && c.previousResult(),
+            optimistic: c.optimistic,
+        }));
+    };
+    return InMemoryCache;
+}(apollo_cache__WEBPACK_IMPORTED_MODULE_1__["ApolloCache"]));
+
+
+//# sourceMappingURL=bundle.esm.js.map
+
 
 /***/ }),
 
@@ -6954,23 +6809,28 @@ var selectURI = function (operation, fallbackURI) {
 
 /***/ }),
 
-/***/ "./node_modules/apollo-link-http/lib/httpLink.js":
-/*!*******************************************************!*\
-  !*** ./node_modules/apollo-link-http/lib/httpLink.js ***!
-  \*******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ "./node_modules/apollo-link-http/lib/bundle.esm.js":
+/*!*********************************************************!*\
+  !*** ./node_modules/apollo-link-http/lib/bundle.esm.js ***!
+  \*********************************************************/
+/*! exports provided: HttpLink, createHttpLink */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HttpLink", function() { return HttpLink; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createHttpLink", function() { return createHttpLink; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var apollo_link__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! apollo-link */ "./node_modules/apollo-link-http/node_modules/apollo-link/lib/bundle.esm.js");
+/* harmony import */ var apollo_link_http_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! apollo-link-http-common */ "./node_modules/apollo-link-http-common/lib/bundle.esm.js");
 
-Object.defineProperty(exports, "__esModule", { value: true });
-var tslib_1 = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-var apollo_link_1 = __webpack_require__(/*! apollo-link */ "./node_modules/apollo-link-http/node_modules/apollo-link/lib/bundle.esm.js");
-var apollo_link_http_common_1 = __webpack_require__(/*! apollo-link-http-common */ "./node_modules/apollo-link-http-common/lib/bundle.esm.js");
-exports.createHttpLink = function (linkOptions) {
+
+
+
+var createHttpLink = function (linkOptions) {
     if (linkOptions === void 0) { linkOptions = {}; }
-    var _a = linkOptions.uri, uri = _a === void 0 ? '/graphql' : _a, fetcher = linkOptions.fetch, includeExtensions = linkOptions.includeExtensions, useGETForQueries = linkOptions.useGETForQueries, requestOptions = tslib_1.__rest(linkOptions, ["uri", "fetch", "includeExtensions", "useGETForQueries"]);
-    apollo_link_http_common_1.checkFetcher(fetcher);
+    var _a = linkOptions.uri, uri = _a === void 0 ? '/graphql' : _a, fetcher = linkOptions.fetch, includeExtensions = linkOptions.includeExtensions, useGETForQueries = linkOptions.useGETForQueries, requestOptions = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__rest"])(linkOptions, ["uri", "fetch", "includeExtensions", "useGETForQueries"]);
+    Object(apollo_link_http_common__WEBPACK_IMPORTED_MODULE_2__["checkFetcher"])(fetcher);
     if (!fetcher) {
         fetcher = fetch;
     }
@@ -6980,8 +6840,8 @@ exports.createHttpLink = function (linkOptions) {
         credentials: requestOptions.credentials,
         headers: requestOptions.headers,
     };
-    return new apollo_link_1.ApolloLink(function (operation) {
-        var chosenURI = apollo_link_http_common_1.selectURI(operation, uri);
+    return new apollo_link__WEBPACK_IMPORTED_MODULE_1__["ApolloLink"](function (operation) {
+        var chosenURI = Object(apollo_link_http_common__WEBPACK_IMPORTED_MODULE_2__["selectURI"])(operation, uri);
         var context = operation.getContext();
         var clientAwarenessHeaders = {};
         if (context.clientAwareness) {
@@ -6993,17 +6853,17 @@ exports.createHttpLink = function (linkOptions) {
                 clientAwarenessHeaders['apollographql-client-version'] = version;
             }
         }
-        var contextHeaders = tslib_1.__assign({}, clientAwarenessHeaders, context.headers);
+        var contextHeaders = Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__assign"])({}, clientAwarenessHeaders, context.headers);
         var contextConfig = {
             http: context.http,
             options: context.fetchOptions,
             credentials: context.credentials,
             headers: contextHeaders,
         };
-        var _b = apollo_link_http_common_1.selectHttpOptionsAndBody(operation, apollo_link_http_common_1.fallbackHttpConfig, linkConfig, contextConfig), options = _b.options, body = _b.body;
+        var _b = Object(apollo_link_http_common__WEBPACK_IMPORTED_MODULE_2__["selectHttpOptionsAndBody"])(operation, apollo_link_http_common__WEBPACK_IMPORTED_MODULE_2__["fallbackHttpConfig"], linkConfig, contextConfig), options = _b.options, body = _b.body;
         var controller;
         if (!options.signal) {
-            var _c = apollo_link_http_common_1.createSignalIfSupported(), _controller = _c.controller, signal = _c.signal;
+            var _c = Object(apollo_link_http_common__WEBPACK_IMPORTED_MODULE_2__["createSignalIfSupported"])(), _controller = _c.controller, signal = _c.signal;
             controller = _controller;
             if (controller)
                 options.signal = signal;
@@ -7018,25 +6878,25 @@ exports.createHttpLink = function (linkOptions) {
         if (options.method === 'GET') {
             var _d = rewriteURIForGET(chosenURI, body), newURI = _d.newURI, parseError = _d.parseError;
             if (parseError) {
-                return apollo_link_1.fromError(parseError);
+                return Object(apollo_link__WEBPACK_IMPORTED_MODULE_1__["fromError"])(parseError);
             }
             chosenURI = newURI;
         }
         else {
             try {
-                options.body = apollo_link_http_common_1.serializeFetchParameter(body, 'Payload');
+                options.body = Object(apollo_link_http_common__WEBPACK_IMPORTED_MODULE_2__["serializeFetchParameter"])(body, 'Payload');
             }
             catch (parseError) {
-                return apollo_link_1.fromError(parseError);
+                return Object(apollo_link__WEBPACK_IMPORTED_MODULE_1__["fromError"])(parseError);
             }
         }
-        return new apollo_link_1.Observable(function (observer) {
+        return new apollo_link__WEBPACK_IMPORTED_MODULE_1__["Observable"](function (observer) {
             fetcher(chosenURI, options)
                 .then(function (response) {
                 operation.setContext({ response: response });
                 return response;
             })
-                .then(apollo_link_http_common_1.parseAndCheckHttpResponse(operation))
+                .then(Object(apollo_link_http_common__WEBPACK_IMPORTED_MODULE_2__["parseAndCheckHttpResponse"])(operation))
                 .then(function (result) {
                 observer.next(result);
                 observer.complete();
@@ -7071,7 +6931,7 @@ function rewriteURIForGET(chosenURI, body) {
     if (body.variables) {
         var serializedVariables = void 0;
         try {
-            serializedVariables = apollo_link_http_common_1.serializeFetchParameter(body.variables, 'Variables map');
+            serializedVariables = Object(apollo_link_http_common__WEBPACK_IMPORTED_MODULE_2__["serializeFetchParameter"])(body.variables, 'Variables map');
         }
         catch (parseError) {
             return { parseError: parseError };
@@ -7081,7 +6941,7 @@ function rewriteURIForGET(chosenURI, body) {
     if (body.extensions) {
         var serializedExtensions = void 0;
         try {
-            serializedExtensions = apollo_link_http_common_1.serializeFetchParameter(body.extensions, 'Extensions map');
+            serializedExtensions = Object(apollo_link_http_common__WEBPACK_IMPORTED_MODULE_2__["serializeFetchParameter"])(body.extensions, 'Extensions map');
         }
         catch (parseError) {
             return { parseError: parseError };
@@ -7099,30 +6959,16 @@ function rewriteURIForGET(chosenURI, body) {
     return { newURI: newURI };
 }
 var HttpLink = (function (_super) {
-    tslib_1.__extends(HttpLink, _super);
+    Object(tslib__WEBPACK_IMPORTED_MODULE_0__["__extends"])(HttpLink, _super);
     function HttpLink(opts) {
-        return _super.call(this, exports.createHttpLink(opts).request) || this;
+        return _super.call(this, createHttpLink(opts).request) || this;
     }
     return HttpLink;
-}(apollo_link_1.ApolloLink));
-exports.HttpLink = HttpLink;
-//# sourceMappingURL=httpLink.js.map
+}(apollo_link__WEBPACK_IMPORTED_MODULE_1__["ApolloLink"]));
 
-/***/ }),
 
-/***/ "./node_modules/apollo-link-http/lib/index.js":
-/*!****************************************************!*\
-  !*** ./node_modules/apollo-link-http/lib/index.js ***!
-  \****************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+//# sourceMappingURL=bundle.esm.js.map
 
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var tslib_1 = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-tslib_1.__exportStar(__webpack_require__(/*! ./httpLink */ "./node_modules/apollo-link-http/lib/httpLink.js"), exports);
-//# sourceMappingURL=index.js.map
 
 /***/ }),
 
