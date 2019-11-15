@@ -105,11 +105,11 @@ const Mutations = {
     }
     // 2. set a reset token and expiry on that user
     const randomBytesPromiseified=promisify(randomBytes);
-    const restToken=(await randomBytesPromiseified(20)).toString('hex');
+    const resetToken=(await randomBytesPromiseified(20)).toString('hex');
     const resetTokenExpiry = Date.now() + 3600000; //1h from now
     const res= await ctx.db.mutation.updateUser({
       where:{email:args.email},
-      data: { restToken, resetTokenExpiry}
+      data: { resetToken, resetTokenExpiry}
     });
     console.log(res);
     // 3.email that reset token
@@ -119,7 +119,7 @@ const Mutations = {
       subject:'Your Password Reset Token',
       html:makeANiceEmail(`Your Password Rest Token is here!
       \n\n
-      <a href="${process.env.FRONTEND_URL}/reset?resetToken=${restToken}">Click Here to Reset</a>`),
+      <a href="${process.env.FRONTEND_URL}/reset?resetToken=${resetToken}">Click Here to Reset</a>`),
 
     });
     // 4.return the message
@@ -135,7 +135,7 @@ async resetPassword(parent,args,ctx,info){
   // 3.check if its expired
   const[user]=await ctx.db.query.users({
     where:{
-      resetToken:args.restToken,
+      resetToken:args.resetToken,
       resetTokenExpiry_gte: Date.now() - 3600000,
     }
   })
