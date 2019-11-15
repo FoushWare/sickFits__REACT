@@ -7,10 +7,19 @@ const {transport,makeANiceEmail}=require('../mail');
 const Mutations = {
   async createItem(parent, args, ctx, info){
     //TODO: check if they are logged in
+    if(!ctx.request.userId){
+      throw new Error('You must be logged in to do that !');
+    }
     //interface to prisma db
         //this ctx.db.*** return promise so i'm using async
     const item= await ctx.db.mutation.createItem({
       data:{
+        //this is how we create a relationship between the user and items
+        user:{
+            connect:{
+                id:ctx.request.userId,
+            }
+        },
         ...args
       }
     },info);  //this is from createserver.js
