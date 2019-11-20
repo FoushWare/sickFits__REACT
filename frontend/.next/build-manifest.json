@@ -10,6 +10,14 @@
     "/_error": [
       "static/runtime/webpack.js",
       "static/runtime/main.js"
+    ],
+    "/permissions": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
+    ],
+    "/signup": [
+      "static/runtime/webpack.js",
+      "static/runtime/main.js"
     ]
   }
 }
