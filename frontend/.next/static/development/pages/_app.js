@@ -564,7 +564,7 @@ var User = function User(props) {
     },
     __self: this
   }), function (payload) {
-    return props.children(payload);
+    return console.log(payload) || props.children(payload);
   });
 };
 
