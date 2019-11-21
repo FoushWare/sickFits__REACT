@@ -32,7 +32,7 @@ type Mutation {
     password: String!
     confirmPassword: String!
   ): User!
-  updatePermissions(permisssions: [Permission], userId: ID!): User
+  updatePermissions(permissions: [Permission], userId: ID!): User
 }
 type Query {
   items(
