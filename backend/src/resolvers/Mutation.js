@@ -234,6 +234,62 @@ async updatePermissions(parent,args,ctx,info){
       }
     },info);
 
+  },
+  async removeFromCart(parent,args,ctx,info){
+    // 1. find the cart item
+    const cartItem=await ctx.db.query.cartItem({
+
+      where:{
+        id:args.id
+      },
+    },`{id,user {id} }`
+    )
+    // 1.5 make sure that we found this item
+    if (!cartItem) throw new Error('No CartItem Found!');
+    // 2. check if they own that cart item
+    if(ctx.request.userId !== cartItem.user.id){
+      throw new Error('Cheatin huhhhh');
+    }
+    // 3. delete the cart item
+    return ctx.db.mutation.deleteCartItem({
+      where:{id:args.id}
+    },info);
+  },
+  async createOrder(parent,args,ctx,info){
+    // 1. Query the current user and make sure they are signed in
+    const {userId}=ctx.request;
+    if (!userId) throw new Error('You must be signed in to complete this order.');
+    const user= await ctx.db.query.user({
+      where:{id:userId}
+    },
+    `{
+      id
+      name
+      email
+      cart{
+        id
+        quantity
+        item{
+          title
+          price
+          id
+          description
+          image
+        }
+      }
+    }
+        `);
+    // 2. recalculate the total for the price
+      const amount = user.cart.reduce(
+        (tally,cartItem)=>tally +
+        cartItem.quantity,0);
+    console.log(`Going to charge for a total of ${amount}`);
+    // 3. create the stripe charge (turn token into $$$$)
+    // 4. convert the cartitems to orderitems
+    // 5. create the order
+    // 6. clean up - clean the users cart , delete cartitmes
+    // 7. Return the order to the client
+
   }
 };
 
