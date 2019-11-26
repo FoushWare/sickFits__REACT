@@ -82,7 +82,7 @@ class CreateItem extends Component {
               // call the mutation
               const res = await createItem();
               // change them to the single item page
-              console.log(res);
+              console.log(`test for price change${res.data.createItem.price}`);
               Router.push({
                 pathname: '/item',
                 query: { id: res.data.createItem.id },

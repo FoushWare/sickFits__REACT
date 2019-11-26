@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import StripeCheckout from 'react-stripe-checkout';
 import { Mutation } from 'react-apollo';
 import Router from 'next/router';
@@ -10,7 +10,7 @@ import Error from './ErrorMessage';
 import User, { CURRENT_USER_QUERY } from './User';
 
 const CREATE_ORDER_MUTATION = gql`
-  mutation CREATE_ORDER_MUTATION($token: String!) {
+  mutation createOrder($token: String!) {
     createOrder(token: $token) {
       id
       charge
@@ -22,22 +22,27 @@ const CREATE_ORDER_MUTATION = gql`
     }
   }
 `;
+
 function totalItems(cart) {
   return cart.reduce((tally, cartItem) => tally + cartItem.quantity, 0);
 }
-class TakeMyMoney extends Component {
-  state = {};
 
-  onToken = (res, createOrder) => {
+class TakeMyMoney extends React.Component {
+  onToken = async (res, createOrder) => {
+    NProgress.start();
     console.log('On Token Called!');
     console.log(res.id);
     // manually call the mutation once we have the stripe token
-    createOrder({
+    const order = await createOrder({
       variables: {
         token: res.id,
       },
     }).catch(err => {
       alert(err.message);
+    });
+    Router.push({
+      pathname: '/order',
+      query: { id: order.data.createOrder.id },
     });
   };
 
@@ -54,7 +59,9 @@ class TakeMyMoney extends Component {
                 amount={calcTotalPrice(me.cart)}
                 name="Sick Fits"
                 description={`Order of ${totalItems(me.cart)} items!`}
-                image={me.cart[0].item && me.cart[0].item.image}
+                image={
+                  me.cart.length && me.cart[0].item && me.cart[0].item.image
+                }
                 stripeKey="pk_test_fuaXFY7JMoqGW1Nse7gLc70u"
                 currency="USD"
                 email={me.email}
