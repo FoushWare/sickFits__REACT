@@ -4,7 +4,7 @@ const {randomBytes}= require('crypto');
 const {promisify}=require('util');
 const {transport,makeANiceEmail}=require('../mail');
 const { hasPermission } = require('../utils');
-
+const stripe = require('../stripe');
 
 const Mutations = {
   async createItem(parent, args, ctx, info){
@@ -12,6 +12,7 @@ const Mutations = {
     if(!ctx.request.userId){
       throw new Error('You must be logged in to do that !');
     }
+    console.log("price passed to the backend  : "+args.price);
     //interface to prisma db
         //this ctx.db.*** return promise so i'm using async
     const item= await ctx.db.mutation.createItem({
@@ -25,7 +26,7 @@ const Mutations = {
         ...args
       }
     },info);  //this is from createserver.js
-    console.log(item);
+    console.log(`item is  ${item}`);
     return item;
 
   },
@@ -275,21 +276,53 @@ async updatePermissions(parent,args,ctx,info){
           id
           description
           image
+          largeImage
         }
       }
     }
         `);
     // 2. recalculate the total for the price
-      const amount = user.cart.reduce(
-        (tally,cartItem)=>tally +
-        cartItem.quantity,0);
+    const amount = user.cart.reduce(
+      (tally, cartItem) => tally + cartItem.item.price * cartItem.quantity,
+      0
+    );
     console.log(`Going to charge for a total of ${amount}`);
     // 3. create the stripe charge (turn token into $$$$)
+    const charge = await stripe.charges.create({
+      amount,
+      currency:'USD',
+      source: args.token,
+    })
     // 4. convert the cartitems to orderitems
+    const OrderItems= user.cart.map(cartItem=>{
+      const OrderItem={
+        ...cartItem.item,
+        quantity:cartItem.quantity,
+        user:{connect:{id:userId}},
+      }
+      delete OrderItem.id;
+      return OrderItem;
+    });
     // 5. create the order
+    const order= await ctx.db.mutation.createOrder({
+      data:{
+        total:charge.amount,
+        charge:charge.id,
+        items:{create:OrderItems},
+        user:{ connect:{id:userId}}
+      }
+    });
     // 6. clean up - clean the users cart , delete cartitmes
+    const cartItemsIds = user.cart.map(cartitem=>
+       cartitem.id
+    );
+    await ctx.db.mutation.deleteManyCartItems({
+      where:{
+        id_in: cartItemsIds
+      }
+    })
     // 7. Return the order to the client
-
+    return order;
   }
 };
 
