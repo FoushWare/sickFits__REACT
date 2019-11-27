@@ -36,14 +36,13 @@ server.express.use(async(req,res,next)=>{
 });
 // start it
 server.start(
-  // {
-  // cors:{
-  //     credentials: true,
-  //   // this port with frontend will only be the only user of this server
-  //   origin: process.env.FRONTEND_URL,
-  // },
-// }
-,deets=>{
+  {
+  cors:{
+      credentials: true,
+    // this port with frontend will only be the only user of this server
+    origin: process.env.FRONTEND_URL,
+  },
+},deets=>{
   console.log(`Server is now running on port
     http:/localhost:${deets.port}`);
 }
