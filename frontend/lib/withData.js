@@ -12,7 +12,7 @@ function createClient({ headers }) {
         // credentials: 'include',
 
         fetchOptions: {
-          credentials: 'same-origin',
+          credentials: 'include',
         },
         connectToDevTools: true,
         headers,
