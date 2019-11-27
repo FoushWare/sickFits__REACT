@@ -1,7 +1,7 @@
 import withApollo from 'next-with-apollo';
 import ApolloClient from 'apollo-boost';
 // import { InMemoryCache } from 'apollo-cache-inmemory';
-import { endpoint , prodendpoint} from '../config';
+import { endpoint, prodendpoint } from '../config';
 import { LOCAL_STATE_QUERY } from '../components/Cart';
 
 function createClient({ headers }) {
@@ -12,7 +12,7 @@ function createClient({ headers }) {
         // credentials: 'include',
 
         fetchOptions: {
-          credentials: 'include',
+          credentials: 'same-origin',
         },
         connectToDevTools: true,
         headers,
