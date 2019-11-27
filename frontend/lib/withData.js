@@ -10,12 +10,11 @@ function createClient({ headers }) {
     request: operation => {
       operation.setContext({
         // credentials: 'include',
-
         // fetchOptions: {
         //   credentials: 'include',
         // },
-        connectToDevTools: true,
-        headers,
+        // connectToDevTools: true,
+        // headers,
       });
     },
     //  local state data {like public store in}
