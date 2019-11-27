@@ -11,9 +11,9 @@ function createClient({ headers }) {
       operation.setContext({
         // credentials: 'include',
 
-        fetchOptions: {
-          credentials: 'no-cors',
-        },
+        // fetchOptions: {
+        //   credentials: 'include',
+        // },
         connectToDevTools: true,
         headers,
       });
