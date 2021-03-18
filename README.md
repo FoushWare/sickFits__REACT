@@ -29,7 +29,7 @@ A complete web app where users are able to sell and buy products. It keeps a his
 First, clone this repository into your machine
 
 ```shell
-git clone https://github.com/iaguilarmartin/sick-fits.git
+git clone https://github.com/FoushWare/Sick-fits
 ```
 
 ### Run backend
