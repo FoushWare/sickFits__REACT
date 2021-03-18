@@ -1,33 +1,100 @@
-## sick-fits
-A web-app I built as part of the course offered by [Wes Bos](https://wesbos.com/).
+# Sick-fits
 
-The front-end component of sick-fits is built with ReactJS along with NextJS
-for server-side rendering, routing, and tooling. React-Apollo, an adapter for 
-interfacing with the Apollo client, with the Apollo client being used for caching, 
-GraphQL mutations and fetching.
+A complete web app where users are able to sell and buy products. It keeps a history of previous orders and items added to shopping cart can be paid using **Stripe**.
 
-The back-end component uses Prisma for CRUD (create, read, update, delete) 
-operations on MySQL. GraphQL Yoga is used as a proxy on top of Prisma for 
-handling data logic.  
+## Preview
 
-The app is deployed to Heroku, hosting a PostgreSQL database (10000 rows/free), with a server
-deployed on top of the database (0.5GB RAM, 1vCPU/free).
+![Screenshot](https://res.cloudinary.com/dr4a6933v/image/upload/v1543992798/2018-12-05_07-52-29_3_ibrhlk.png)
 
-Deploying Prisma server to Heroku:
-1. Heroku PostgreSQL 
-1. Heroku server
-1. Prisma deploy (`prisma deploy -- -n`, which will ask what instance to set up on)
+## Used technologies
 
-Deploying Yoga server to Heroku (`https://sick-fits-prod-yoga-backend.herokuapp.com/`)
-1. `heroku apps:create sick-fits-prod-yoga-backend` (`brew install heroku/brew/heroku` if you do not have the `heroku` 
-CLI)
-1. `git remote add heroku-backend https://git.heroku.com/sick-fits-prod-yoga-backend.git`
-1. To push only sub-folders to the Heroku backend, `git subtree push --prefix backend heroku-backend master`, which will
-push up the `backend` to the `heroku-backend` subtree on the branch master (error logs can be listed via running 
-`heroku logs --tail --app sick-fits-prod-yoga-backend`). Re-building can be performed through the Heroku UI (restart all
-dynos) or through the same git command
+### Frontend
 
+- ReactJS
+- Apollo
+- Jest & Enzyme
+- Styled components
+- Next
 
-Deploying frontend (`https://sick-fits-flav.herokuapp.com/`):
-1. `heroku apps:create sick-fits-flav`
-1. `git remote add heroku-frontend https://git.heroku.com/sick-fits-flav.git`
+### Backend
+
+- NodeJS
+- GraphQL
+- Yoga
+- Prisma
+- Docker
+
+## Installation
+
+First, clone this repository into your machine
+
+```shell
+git clone https://github.com/iaguilarmartin/sick-fits.git
+```
+
+### Run backend
+
+Move into **backend** folder
+
+```shell
+cd sick-fits/backend
+```
+
+Then, install package dependencies
+
+```shell
+npm install
+```
+
+Creeate a _.env_ file to configure environment variables. Here is a list of needed variables and possible values:
+
+```
+FRONTEND_URL="http://localhost:7777"
+PRISMA_ENDPOINT="http://localhost:4466"
+PRISMA_SECRET="asdfawe4t43gnawrq234fh"
+APP_SECRET="ertweydghfgh"
+STRIPE_SECRET="sk_test_safasdfrtyut"
+PORT=4444
+MAIL_HOST="smtp.mailtrap.io"
+MAIL_PORT="2525"
+MAIL_USER="5234rte68799"
+MAIL_PASS="t67568irt34"
+```
+
+Run Prisma container using Docjer
+
+```shell
+npm run docker
+```
+
+Generate database schema
+
+```shell
+npm run deploy
+```
+
+Launch backend
+
+```shell
+npm run dev
+```
+
+### Run frontend
+
+Move into **frontend** folder
+
+```shell
+cd ../frontend
+```
+
+Then, install package dependencies
+
+```shell
+npm install
+```
+
+Launch frontend
+
+```shell
+npm run dev
+```
