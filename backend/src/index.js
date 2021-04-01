@@ -40,7 +40,7 @@ server.start(
     cors: {
       credentials: true,
       // this port with frontend will only be the only user of this server
-      origin: false,
+      origin: "https://sickfits-next-prodfoush.herokuapp.com/",
     },
   },
   deets => {
