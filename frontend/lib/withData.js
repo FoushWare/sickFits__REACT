@@ -11,11 +11,11 @@ function createClient({ headers }) {
       operation.setContext({
         // credentials: 'include',
 
-        // fetchOptions: {
-        //   credentials: 'include',
-        //   mode: 'no-cors',
-        // },
-        // connectToDevTools: true,
+        fetchOptions: {
+          //   credentials: 'include',
+          mode: 'no-cors',
+        },
+        connectToDevTools: true,
         headers,
       });
     },
