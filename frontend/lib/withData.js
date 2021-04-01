@@ -13,7 +13,7 @@ function createClient({ headers }) {
 
         fetchOptions: {
           // credentials: 'include',
-          mode: 'no-cors',
+          // mode: 'no-cors',
         },
         connectToDevTools: true,
         headers,
