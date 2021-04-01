@@ -12,9 +12,10 @@ function createClient({ headers }) {
         // credentials: 'include',
 
         fetchOptions: {
-          credentials: 'include',
+          // credentials: 'include',
+          mode: 'no-cors',
         },
-        connectToDevTools: true,
+        // connectToDevTools: true,
         headers,
       });
     },
