@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 import gql from 'graphql-tag';
 import { Query } from 'react-apollo';
@@ -6,6 +5,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import PaginationStyles from './styles/PaginationStyles';
 import { perPage } from '../config';
+import Error from './ErrorMessage';
 
 const PAGINATION_QUERY = gql`
   query PAGINATION_QUERY {
@@ -16,21 +16,20 @@ const PAGINATION_QUERY = gql`
     }
   }
 `;
+
 const Pagination = props => (
   <Query query={PAGINATION_QUERY}>
     {({ data, loading, error }) => {
       if (loading) return <p>Loading...</p>;
-      // console.log(data);
-      const { count } = data.itemsConnection.aggregate;
-      console.log(count);
+      if (error) return <Error error={error} />;
+      const count = data.itemsConnection.aggregate.count
       const pages = Math.ceil(count / perPage);
-      const { page } = props;
-      console.log(page);
+      const page = props.page;
       return (
-        <PaginationStyles>
+        <PaginationStyles data-test="pagination">
           <Head>
             <title>
-              Sick Fits! - Page {page} of {pages}
+              Sick Fits! — Page {page} of {pages}
             </title>
           </Head>
           <Link
@@ -45,7 +44,8 @@ const Pagination = props => (
             </a>
           </Link>
           <p>
-            Page {props.page} of {pages}!
+            Page {props.page} of
+            <span className="totalPages">{pages}</span>!
           </p>
           <p>{count} Items Total</p>
           <Link
@@ -55,7 +55,7 @@ const Pagination = props => (
               query: { page: page + 1 },
             }}
           >
-            <a className="prev" aria-disabled={page >= pages}>
+            <a className="next" aria-disabled={page >= pages}>
               Next →
             </a>
           </Link>
@@ -66,3 +66,4 @@ const Pagination = props => (
 );
 
 export default Pagination;
+export { PAGINATION_QUERY };

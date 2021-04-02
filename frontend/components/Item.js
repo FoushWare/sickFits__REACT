@@ -1,4 +1,3 @@
-/* eslint-disable react/button-has-type */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
@@ -9,8 +8,7 @@ import formatMoney from '../lib/formatMoney';
 import DeleteItem from './DeleteItem';
 import AddToCart from './AddToCart';
 
-class Item extends Component {
-  // eslint-disable-next-line react/static-property-placement
+export default class Item extends Component {
   static propTypes = {
     item: PropTypes.object.isRequired,
   };
@@ -20,6 +18,7 @@ class Item extends Component {
     return (
       <ItemStyles>
         {item.image && <img src={item.image} alt={item.title} />}
+
         <Title>
           <Link
             href={{
@@ -30,7 +29,6 @@ class Item extends Component {
             <a>{item.title}</a>
           </Link>
         </Title>
-
         <PriceTag>{formatMoney(item.price)}</PriceTag>
         <p>{item.description}</p>
 
@@ -41,7 +39,7 @@ class Item extends Component {
               query: { id: item.id },
             }}
           >
-            <a>Edit ✝︝</a>
+            <a>Edit ✏️</a>
           </Link>
           <AddToCart id={item.id} />
           <DeleteItem id={item.id}>Delete This Item</DeleteItem>
@@ -50,5 +48,3 @@ class Item extends Component {
     );
   }
 }
-
-export default Item;

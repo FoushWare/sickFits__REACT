@@ -1,4 +1,4 @@
-import PleaseSignIn from '../components/PleaseSigIn';
+import PleaseSignIn from '../components/PleaseSignIn';
 import Order from '../components/Order';
 
 const OrderPage = props => (
@@ -8,4 +8,5 @@ const OrderPage = props => (
     </PleaseSignIn>
   </div>
 );
+
 export default OrderPage;

@@ -5604,7 +5604,7 @@ function connect(options) {
       error.name = err.name;
       error.stack = err.stack; // __NEXT_DIST_DIR is provided by webpack
 
-      (0, _sourceMapSupport.rewriteStacktrace)(error, "/media/tom/My Passport/Areas/Programming/P/DEV/PROJECTS/WEB/JS/React Projects/🔥🔥🔥SickFits🔥🔥🔥/Advanced-React/sick-fits/frontend/.next");
+      (0, _sourceMapSupport.rewriteStacktrace)(error, "/home/tom/Desktop/🔥🔥🔥SickFits🔥🔥🔥/Advanced-React/finished-application/frontend/.next");
       return error;
     }
   };

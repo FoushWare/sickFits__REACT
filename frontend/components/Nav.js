@@ -1,17 +1,17 @@
 import Link from 'next/link';
 import { Mutation } from 'react-apollo';
+import { TOGGLE_CART_MUTATION } from './Cart';
 import NavStyles from './styles/NavStyles';
 import User from './User';
+import CartCount from './CartCount';
 import Signout from './Signout';
-import { TOGGLE_CART_MUTATION } from './Cart';
-import CartCount from './CartCout';
 
 const Nav = () => (
   <User>
-    {/* payload ->disturcure it to   {data,error} */}
-    {/* data ->disturcure it to  {data:{me}} */}
-    {({ data: { me } }) => (
-      <NavStyles>
+    {({ data }) => {
+      const me = data ? data.me : null
+      return (
+      <NavStyles data-test="nav">
         <Link href="/items">
           <a>Shop</a>
         </Link>
@@ -20,7 +20,7 @@ const Nav = () => (
             <Link href="/sell">
               <a>Sell</a>
             </Link>
-            <Link href="/order">
+            <Link href="/orders">
               <a>Orders</a>
             </Link>
             <Link href="/me">
@@ -28,15 +28,10 @@ const Nav = () => (
             </Link>
             <Signout />
             <Mutation mutation={TOGGLE_CART_MUTATION}>
-              {toggleCart => (
+              {(toggleCart) => (
                 <button onClick={toggleCart}>
                   My Cart
-                  <CartCount
-                    count={me.cart.reduce(
-                      (tally, cartItem) => tally + cartItem.quantity,
-                      0
-                    )}
-                  />
+                  <CartCount count={me.cart.reduce((tally, cartItem) => tally + cartItem.quantity, 0)}></CartCount>
                 </button>
               )}
             </Mutation>
@@ -44,11 +39,13 @@ const Nav = () => (
         )}
         {!me && (
           <Link href="/signup">
-            <a>SignIn</a>
+            <a>Sign In</a>
           </Link>
+
         )}
       </NavStyles>
-    )}
+    )
+    }}
   </User>
 );
 
