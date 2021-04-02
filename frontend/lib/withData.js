@@ -11,12 +11,16 @@ function createClient({ headers }) {
       operation.setContext({
         // credentials: 'include',
 
-        fetchOptions: {
-          credentials: 'include',
-          mode: 'no-cors',
-        },
+        // fetchOptions: {
+        //   credentials: 'include',
+        //   mode: 'no-cors',
+        // },
         connectToDevTools: true,
-        headers,
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Credentials': true,
+        },
       });
     },
     //  local state data {like public store in}

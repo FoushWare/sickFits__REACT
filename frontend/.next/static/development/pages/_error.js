@@ -6467,7 +6467,7 @@ if (hadRuntime) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __NEXT_REGISTER_PAGE('/_error', function() {
-module.exports = __webpack_require__(/*! /media/tom/My Passport/Areas/Programming/P/DEV/PROJECTS/WEB/JS/React Projects/🔥🔥🔥SickFits🔥🔥🔥/Advanced-React/sick-fits/frontend/node_modules/next/dist/pages/_error.js */"./node_modules/next/dist/pages/_error.js");
+module.exports = __webpack_require__(/*! /home/tom/Desktop/🔥🔥🔥SickFits🔥🔥🔥/Advanced-React/sick-fits/frontend/node_modules/next/dist/pages/_error.js */"./node_modules/next/dist/pages/_error.js");
 
 return { page: module.exports.default }});
 
