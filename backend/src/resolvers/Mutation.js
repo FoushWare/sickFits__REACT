@@ -177,7 +177,7 @@ const Mutations = {
     // 7. Set the JWT cookie
     ctx.response.cookie('token', token, {
       secure: true, // only transfer over https
-      sameSite: 'none',
+      sameSite: 'None',
       // httpOnly: true,
       maxAge: 1000 * 60 * 60 * 24 * 365,
     });
