@@ -19,6 +19,15 @@ server.express.use((req, res, next) => {
   }
   next();
 });
+server.express.use((req, res, next) => {
+  const { token } = req.cookies;
+  if (token) {
+    const { userId } = jwt.verify(token, process.env.APP_SECRET);
+    // put the userId onto the req for future requests to access
+    req.userId = userId;
+  }
+  next();
+});
 
 // 2. Create a middleware that populates the user on each request
 
