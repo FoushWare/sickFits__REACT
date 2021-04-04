@@ -19,14 +19,14 @@ server.express.use((req, res, next) => {
   }
   next();
 });
-server.express.use(function (req, res, next) {
-  res.header('Access-Control-Allow-Origin', 'https://foushwaresickfits-next.herokuapp.com');
-  res.header(
-    'Access-Control-Allow-Headers',
-    'Origin, X-Requested-With, Content-Type, Accept'
-  );
-  next();
-});
+// server.express.use(function (req, res, next) {
+//   res.header('Access-Control-Allow-Origin', 'https://foushwaresickfits-next.herokuapp.com');
+//   res.header(
+//     'Access-Control-Allow-Headers',
+//     'Origin, X-Requested-With, Content-Type, Accept'
+//   );
+//   next();
+// });
 
 // 2. Create a middleware that populates the user on each request
 
