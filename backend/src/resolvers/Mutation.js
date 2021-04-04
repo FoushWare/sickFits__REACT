@@ -111,7 +111,7 @@ const Mutations = {
       httpOnly: true,
       maxAge: 1000 * 60 * 60 * 24 * 365,
     });
-    console.log("ctx response" + ctx);
+    console.log("ctx response" + ctx.response.cookie);
     // 5. Return the user
     return user;
   },
