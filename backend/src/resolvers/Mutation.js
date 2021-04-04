@@ -103,6 +103,7 @@ const Mutations = {
     }
     // 3. generate the JWT Token
     const token = jwt.sign({ userId: user.id }, process.env.APP_SECRET);
+    console.log("token is " + token);
     // 4. Set the cookie with the token
     ctx.response.cookie('token', token, {
       httpOnly: true,
@@ -137,7 +138,7 @@ const Mutations = {
       html: makeANiceEmail(`Your Password Reset Token is here!
       \n\n
       <a href="${process.env
-        .FRONTEND_URL}/reset?resetToken=${resetToken}">Click Here to Reset</a>`),
+          .FRONTEND_URL}/reset?resetToken=${resetToken}">Click Here to Reset</a>`),
     });
 
     // 4. Return the message
