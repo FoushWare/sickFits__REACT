@@ -34,13 +34,14 @@ server.express.use(async (req, res, next) => {
 });
 
 server.start(
-  // {
-  //   cors: {
-  //     credentials: true,
-  //     // origin: process.env.FRONTEND_URL,
-  //     origin: process.env.FRONTEND_URL,
-  //   },
-  // },
+  {
+    cors: {
+      credentials: true,
+      // origin: process.env.FRONTEND_URL,
+      // origin: process.env.FRONTEND_URL,
+      origin: 'https://foushwaresickfits-next.herokuapp.com/',
+    },
+  },
   deets => {
     console.log(`Server is now running on port http://localhost:${deets.port}`);
   }
