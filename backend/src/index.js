@@ -47,7 +47,7 @@ server.start(
       credentials: true,
       // origin: process.env.FRONTEND_URL,
       // origin: process.env.FRONTEND_URL,
-      origin: 'https://foushwaresickfits-next.herokuapp.com/',
+      origin: 'https://foushwaresickfits-next.herokuapp.com',
     },
   },
   deets => {
