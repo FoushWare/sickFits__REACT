@@ -106,6 +106,8 @@ const Mutations = {
     console.log("token is " + token);
     // 4. Set the cookie with the token
     ctx.response.cookie('token', token, {
+      Secure: true, // only transfer over https
+      SameSite: "None",
       httpOnly: true,
       maxAge: 1000 * 60 * 60 * 24 * 365,
     });
@@ -178,7 +180,7 @@ const Mutations = {
     ctx.response.cookie('token', token, {
       Secure: true, // only transfer over https
       SameSite: "None",
-      httpOnly: false,
+      httpOnly: true,
       maxAge: 1000 * 60 * 60 * 24 * 365,
     });
     // 8. return the new user
