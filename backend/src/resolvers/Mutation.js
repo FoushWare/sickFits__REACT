@@ -117,7 +117,11 @@ const Mutations = {
     return user;
   },
   signout(parent, args, ctx, info) {
-    ctx.response.clearCookie('token');
+    ctx.response.clearCookie('token', {
+      httpOnly: true,
+      secure: true, // only transfer over https
+      sameSite: "none",
+    });
     return { message: 'Goodbye!' };
   },
   async requestReset(parent, args, ctx, info) {
