@@ -85,7 +85,9 @@ const Mutations = {
     // We set the jwt as a cookie on the response
     ctx.response.cookie('token', token, {
       httpOnly: true,
-      maxAge: 1000 * 60 * 60 * 24 * 365, // 1 year cookie
+      secure: true, // only transfer over https
+      sameSite: "none",
+      maxAge: 1000 * 60 * 60 * 24 * 365,
     });
     // Finalllllly we return the user to the browser
     return user;
@@ -177,9 +179,9 @@ const Mutations = {
     const token = jwt.sign({ userId: updatedUser.id }, process.env.APP_SECRET);
     // 7. Set the JWT cookie
     ctx.response.cookie('token', token, {
-      Secure: true, // only transfer over https
-      SameSite: "None",
       httpOnly: true,
+      secure: true, // only transfer over https
+      sameSite: "none",
       maxAge: 1000 * 60 * 60 * 24 * 365,
     });
     // 8. return the new user

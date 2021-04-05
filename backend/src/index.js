@@ -47,8 +47,8 @@ server.start(
     cors: {
       credentials: true,
       // origin: process.env.FRONTEND_URL,
-      // origin: process.env.FRONTEND_URL,
-      origin: 'https://foushwaresickfits-next.herokuapp.com',
+      origin: process.env.FRONTEND_URL,
+      // origin: 'https://foushwaresickfits-next.herokuapp.com',
     },
   },
   deets => {
