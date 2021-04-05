@@ -98,3 +98,94 @@ Launch frontend
 ```shell
 npm run dev
 ```
+## Deployment 
+
+I needed 3 apps on the cloud 
+ - one for prisma 
+ - one for yoga server for backend graphQL
+ - one for the frontend app [ React app with nextjs ]
+
+So i chooses Heroku[![Heroku](https://heroku-badge.herokuapp.com/?app=heroku-badge)]
+
+<img src="https://format-com-cld-res.cloudinary.com/image/private/s--fOhTTFi6--/c_crop,h_2000,w_2960,x_0,y_0/c_fill,g_center,h_1200/fl_keep_iptc.progressive.apng/v1/005d1937177ba469e6110debcce15d3f/heroku-logo-thumbnail.png" width="200px"/>
+
+
+
+
+I deployed it to heroku but i had some errors 
+
+
+- CORS error
+
+    I tried all the answers on the internet, but you won't believe me 
+
+    i put the FRONTENT_URL to Heroku  like that 
+
+    ```jsx
+    https://foushwaresickfits-next.herokuapp.com/
+    ```
+
+    But the correct one was the same URL without the ending slash 
+
+    ```jsx
+    https://foushwaresickfits-next.herokuapp.com
+    ```
+
+    Backend config for cors 
+
+    ```jsx
+    server.start(
+      {
+        cors: {
+          credentials: true,
+          // origin: process.env.FRONTEND_URL,
+          origin: process.env.FRONTEND_URL,
+          // origin: 'https://foushwaresickfits-next.herokuapp.com',
+        },
+      },
+      deets => {
+        console.log(`Server is now running on port http://localhost:${deets.port}`);
+      }
+    );
+    ```
+
+    for the frontend
+
+    ```jsx
+    return new ApolloClient({
+        uri: process.env.NODE_ENV === 'development' ? endpoint : prodEndpoint,
+        request: operation => {
+          operation.setContext({
+            fetchOptions: {
+              credentials: 'include',
+            },
+            headers,
+          });
+        },
+    ```
+
+    ---
+
+- set cookie
+
+    how to set cookies when using CORS.
+
+    i didn't see cookie in the browser but you can know more info from the network tab in the developer tool in chrome that the cookie is send from the server but the browser block it so i need to make 
+
+    sameSite: "none "    && secure : true  in the cookie setting process
+
+    ```jsx
+    ctx.response.cookie('token', token, {
+          httpOnly: true,
+          secure: true, // only transfer over https
+          sameSite: "none",
+          maxAge: 1000 * 60 * 60 * 24 * 365,
+        });
+    ```
+
+
+
+
+
+
+
