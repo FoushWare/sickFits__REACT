@@ -24,6 +24,116 @@ You can visite the website Here [ link](https://foushwaresickfits-next.herokuapp
 - Prisma
 - Docker
 
+
+## What to do when create Mutation or Query in graphql 
+ 
+- Create a type in datamodel.prisma 
+```
+type User {
+  id: ID! @id
+  name: String!
+  email: String! @unique
+  password:String!
+  resetToken:String
+  resetTokenExpiry:String
+  permissions:[Permission] @scalarList(strategy: RELATION)
+  cart:[CartItem!]!
+}
+type Item {
+  id: ID!  @id
+  title: String!
+  description: String!
+  image: String
+  largeImage: String
+  price: Int!
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+  user:User!
+}
+
+```
+
+- Deploy it to prisma [to update the db] to get the  prisma schema (generated/prisma.graphql)
+```
+npm run deploy
+
+```
+
+- Write the type of mutation or Query  [like function declaration in c programming] in schema.graphql
+```
+
+type Mutation {
+  createItem(
+    title: String
+    description: String
+    price: Int
+    image: String
+    largeImage: String
+  ): Item!
+  
+  type Query {
+  items(
+    where: ItemWhereInput
+    orderBy: ItemOrderByInput
+    skip: Int
+    first: Int
+  ): [Item]!
+  item(where: ItemWhereUniqueInput!): Item
+  itemsConnection(where: ItemWhereInput): ItemConnection!
+  me: User
+  users: [User]!
+}
+```
+
+- Write a query or mutation in the resolvers [like function implementation in c programming]
+
+Query
+```
+
+ async users(parent,args,ctx,info){
+    // 1. check if the user[who query users query] is logged in
+    if(!ctx.request.userId){
+      throw new Error('You must be logged in!');
+    }
+    console.log(ctx.request.userId);
+    // 2. check if the user has the permission to query all users
+    hasPermission(ctx.request.user, ['ADMIN','PERMISSIONUPDATE']);
+    // 3. if they do, query all the users
+    return ctx.db.query.users({},info);
+  }
+
+
+};
+
+
+```
+
+Mutation 
+
+```
+async createItem(parent, args, ctx, info){
+    //TODO: check if they are logged in
+    if(!ctx.request.userId){
+      throw new Error('You must be logged in to do that !');
+    }
+    //interface to prisma db
+        //this ctx.db.*** return promise so i'm using async
+    const item= await ctx.db.mutation.createItem({
+      data:{
+        //this is how we create a relationship between the user and items
+        user:{
+            connect:{
+                id:ctx.request.userId,
+            }
+        },
+        ...args
+      }
+    },info);  //this is from createserver.js
+    console.log(item);
+    return item;
+
+  },
+```
 ## Installation
 
 First, clone this repository into your machine
