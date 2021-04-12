@@ -15,6 +15,7 @@ You can visite the website Here [ link](https://foushwaresickfits-next.herokuapp
 - Jest & Enzyme
 - Styled components
 - Next
+- cloudinary [ for image manipulation make small and large images and add filter to images ]
 
 ### Backend
 
@@ -23,6 +24,62 @@ You can visite the website Here [ link](https://foushwaresickfits-next.herokuapp
 - Yoga
 - Prisma
 - Docker
+
+
+### cloudinary 
+- Cloudinary Platform Powering Your Media · Image and Video API for Powerful Visual Experiences · Automatically optimize and deliver images and videos
+
+Code to do this in my project[frontend/components/createitem.js] is : 
+```
+
+uploadFile = async e => {
+    console.log('uploading file...');
+    const { files } = e.target;
+    console.log(files);
+    const data = new FormData();
+    data.append('file', files[0]);
+    data.append('upload_preset', 'sickfits');
+    const res = await fetch(
+      'https://api.cloudinary.com/v1_1/dgnyyo3a3/image/upload/',
+      {
+        method: 'POST',
+        body: data,
+      }
+    );
+    console.log(res);
+    const file = await res.json();
+    console.log(file);
+    this.setState({
+      image: file.secure_url,
+      largeImage: file.eager[0].secure_url,
+    });
+  };
+  
+
+
+<label htmlFor="file">
+                image
+                <input
+                  type="file"
+                  id="file"
+                  name="file"
+                  placeholder="Upload an image"
+                  required
+                  onChange={this.uploadFile}
+                />
+                {image && <img width="200" src={image} alt="upload Preview" />}
+```
+
+
+
+upload preset => this is the preset of this project which i created on cloudinary
+
+```
+  data.append('upload_preset', 'sickfits');
+```
+This is my preset on cloudinary 
+
+![Screenshot](https://res.cloudinary.com/dgnyyo3a3/image/upload/v1618265590/images/preset_z5cvck.png)
 
 
 ## What to do when create Mutation or Query in graphql 
