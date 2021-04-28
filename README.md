@@ -2,6 +2,21 @@
 
 A complete web app where users are able to sell and buy products. It keeps a history of previous orders and items added to shopping cart can be paid using **Stripe**.
 
+
+![stripe payment](https://res.cloudinary.com/dgnyyo3a3/image/upload/v1619597147/images/Stripe-Logo_d72cpk.png)
+
+### These numbers can be used as card number in purpose of testing 
+
+
+| NUMBER	     | BRAND	   | CVC	           | DATE              |
+| -------------- | ----------- |-------------------|-------------------|
+|4242424242424242|	Visa	   |    Any 3 digits   |   Any future date |
+|4000056655665556| Visa (debit)|	Any 3 digits   |   Any future date |
+
+
+
+
+
 ## Preview
 You can visite the website Here [ link](https://foushwaresickfits-next.herokuapp.com/)
 ![Screenshot](https://res.cloudinary.com/dr4a6933v/image/upload/v1543992798/2018-12-05_07-52-29_3_ibrhlk.png)
