@@ -1,0 +1,13 @@
+{
+  "workbench.colorCustomizations": {
+    "titleBar.activeForeground": "#000",
+    "titleBar.inactiveForeground": "#000000CC",
+    "titleBar.activeBackground": "#FFC600",
+    "titleBar.inactiveBackground": "#FFC600CC",
+    // "activityBar.background": "#FFC600",
+    "statusBar.background": "#362e0f"
+  },
+  "editor.fontSize": 16,
+  "editor.lineHeight": 35,
+  "editor.letterSpacing": 0.3
+}
