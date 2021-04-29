@@ -591,13 +591,7 @@ var MyAccount = function MyAccount() {
       lineNumber: 6
     },
     __self: this
-  }, "My Account"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_User__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    __source: {
-      fileName: _jsxFileName,
-      lineNumber: 8
-    },
-    __self: this
-  }));
+  }, "My Account"), _components_User__WEBPACK_IMPORTED_MODULE_1__["default"]);
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (MyAccount);
