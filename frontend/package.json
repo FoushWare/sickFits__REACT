@@ -1,4 +1,7 @@
 {
+	"engines": {
+		"node": ">=0.12"
+	},
 	"name": "sick-fits-frontend",
 	"version": "1.0.0",
 	"description": "Sick Fits! An example React, GraphQL, Next and Apollo",
