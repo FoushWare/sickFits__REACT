@@ -57,7 +57,9 @@ class OrderList extends React.Component {
                           <p>{order.items.reduce((a, b) => a + b.quantity, 0)} Items</p>
                           <p>{order.items.length} Products</p>
                           {console.log(order.createdAt)}
-                          <p>{formatDistance(order.createdAt, new Date())}</p>
+                          {/* parseiso in production */}
+                          {/* <p>{formatDistance(order.createdAt, new Date())}</p> */}
+                          <p>{formatDistance(parseISO(order.createdAt), new Date())}</p>
                           <p>{formatMoney(order.total)}</p>
                         </div>
                         <div className="images">
