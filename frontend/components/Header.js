@@ -1,27 +1,26 @@
-import styled from 'styled-components';
 import Link from 'next/link';
-import Router from 'next/router';
+import styled from 'styled-components';
 import NProgress from 'nprogress';
+import Router from 'next/router';
 import Nav from './Nav';
 import Cart from './Cart';
 import Search from './Search';
 
 Router.onRouteChangeStart = () => {
   NProgress.start();
-  console.log('start');
 };
 Router.onRouteChangeComplete = () => {
   NProgress.done();
-  console.log('complete');
 };
+
 Router.onRouteChangeError = () => {
   NProgress.done();
-  console.log('error');
 };
 
 const Logo = styled.h1`
   font-size: 4rem;
   margin-left: 2rem;
+  position: relative;
   z-index: 2;
   transform: skew(-7deg);
   a {
@@ -34,15 +33,14 @@ const Logo = styled.h1`
   @media (max-width: 1300px) {
     margin: 0;
     text-align: center;
-    grid-template-columns: auto 1fr;
-    justify-content: space-between;
-    align-items: stretch;
   }
 `;
+
 const StyledHeader = styled.header`
   .bar {
     border-bottom: 10px solid ${props => props.theme.black};
     display: grid;
+    grid-template-columns: auto 1fr;
     justify-content: space-between;
     align-items: stretch;
     @media (max-width: 1300px) {
@@ -62,14 +60,13 @@ const Header = () => (
     <div className="bar">
       <Logo>
         <Link href="/">
-          <a href="">Sick Fits</a>
+          <a>Sick Fits</a>
         </Link>
       </Logo>
       <Nav />
     </div>
-
     <div className="sub-bar">
-      <Search/>
+      <Search />
     </div>
     <Cart />
   </StyledHeader>

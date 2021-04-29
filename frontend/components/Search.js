@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Downshift, { resetIdCounter } from 'downshift';
 import Router from 'next/router';
 import { ApolloConsumer } from 'react-apollo';
@@ -6,16 +6,9 @@ import gql from 'graphql-tag';
 import debounce from 'lodash.debounce';
 import { DropDown, DropDownItem, SearchStyles } from './styles/DropDown';
 
-const SEARCH_ITEM_QUERY = gql`
-  query SEARCH_ITEM_QUERY($searchTerm: String!) {
-    items(
-      where: {
-        OR: [
-          { title_contains: $searchTerm }
-          { description_contains: $searchTerm }
-        ]
-      }
-    ) {
+const SEARCH_ITEMS_QUERY = gql`
+  query SEARCH_ITEMS_QUERY($searchTerm: String!) {
+    items(where: { OR: [{ title_contains: $searchTerm }, { description_contains: $searchTerm }] }) {
       id
       image
       title
@@ -23,51 +16,41 @@ const SEARCH_ITEM_QUERY = gql`
   }
 `;
 
-class AutoComplete extends Component {
+function routeToItem(item) {
+  Router.push({
+    pathname: '/item',
+    query: {
+      id: item.id,
+    },
+  });
+}
+
+class AutoComplete extends React.Component {
   state = {
     items: [],
     loading: false,
   };
-
-  // debounce :=> make a delay to search so not make request with each char typed for performance
   onChange = debounce(async (e, client) => {
+    console.log('Searching...');
     // turn loading on
     this.setState({ loading: true });
     // Manually query apollo client
     const res = await client.query({
-      query: SEARCH_ITEM_QUERY,
+      query: SEARCH_ITEMS_QUERY,
       variables: { searchTerm: e.target.value },
     });
-    this.setState({ items: res.data.items });
-    console.log(res);
-  }, 350);
-
-  routeToItem = item => {
-    Router.push({
-      pathname: '/item',
-      query: {
-        id: item.id,
-      },
+    this.setState({
+      items: res.data.items,
+      loading: false,
     });
-  };
-
+  }, 350);
   render() {
     resetIdCounter();
     return (
       <SearchStyles>
-        <Downshift
-          onChange={this.routeToItem}
-          itemToString={item => (item === null ? '' : item.title)}
-        >
-          {({
-            getInputProps,
-            getItemProps,
-            isOpen,
-            inputValue,
-            highlightedIndex,
-          }) => (
+        <Downshift onChange={routeToItem} itemToString={item => (item === null ? '' : item.title)}>
+          {({ getInputProps, getItemProps, isOpen, inputValue, highlightedIndex }) => (
             <div>
-              {/* eslint-disable */}
               <ApolloConsumer>
                 {client => (
                   <input
@@ -75,7 +58,7 @@ class AutoComplete extends Component {
                       type: 'search',
                       placeholder: 'Search For An Item',
                       id: 'search',
-                        className: this.state.loading ? 'loading' : '',
+                      className: this.state.loading ? 'loading' : '',
                       onChange: e => {
                         e.persist();
                         this.onChange(e, client);
@@ -84,14 +67,11 @@ class AutoComplete extends Component {
                   />
                 )}
               </ApolloConsumer>
-                {/* eslint-enable */}
               {isOpen && (
                 <DropDown>
                   {this.state.items.map((item, index) => (
                     <DropDownItem
-                      {...getItemProps({
-                        item,
-                      })}
+                      {...getItemProps({ item })}
                       key={item.id}
                       highlighted={index === highlightedIndex}
                     >
@@ -99,12 +79,8 @@ class AutoComplete extends Component {
                       {item.title}
                     </DropDownItem>
                   ))}
-                  {!this.state.items.length && !this.state.loading && (
-                    <DropDownItem>
-                      {' '}
-                      Nothing Found for : {inputValue}
-                    </DropDownItem>
-                  )}
+                  {!this.state.items.length &&
+                    !this.state.loading && <DropDownItem> Nothing Found {inputValue}</DropDownItem>}
                 </DropDown>
               )}
             </div>
@@ -114,4 +90,5 @@ class AutoComplete extends Component {
     );
   }
 }
+
 export default AutoComplete;
