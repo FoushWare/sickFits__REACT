@@ -1,15 +1,5 @@
 # @format
 
-fragment itemDetails on Item {
-	__typename
-	id
-	title
-	price
-	description
-	image
-	largeImage
-}
-
 mutation CREATE_ITEM_MUTATION(
 	$description: String!
 	$title: String!
