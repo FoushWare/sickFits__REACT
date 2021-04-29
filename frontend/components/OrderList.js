@@ -1,6 +1,6 @@
 import React from 'react';
 import { Query } from 'react-apollo';
-import { formatDistance } from 'date-fns';
+import { formatDistance, parseISO } from 'date-fns';
 import Link from 'next/link';
 import styled from 'styled-components';
 import gql from 'graphql-tag';
