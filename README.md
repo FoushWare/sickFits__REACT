@@ -18,7 +18,7 @@ A complete web app where users are able to sell and buy products. It keeps a his
 
 
 ## Preview
-You can visite the website Here [ link](https://foushwaresickfits-next.herokuapp.com/)
+You can visite the website Here [ link](https://sickfits-store.herokuapp.com)
 ![Screenshot](https://res.cloudinary.com/dr4a6933v/image/upload/v1543992798/2018-12-05_07-52-29_3_ibrhlk.png)
 
 ## Used technologies
