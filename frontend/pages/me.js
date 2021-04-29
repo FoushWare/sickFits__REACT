@@ -1,5 +1,3 @@
-import EditUser from '../components/EditUser';
-import PleaseSignIn from '../components/PleaseSignIn';
 
 const MyAccount = () => (
     <>
