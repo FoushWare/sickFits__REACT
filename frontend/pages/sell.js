@@ -1,12 +1,7 @@
-import CreateItem from '../components/CreateItem';
-import PleaseSignIn from '../components/PleaseSignIn';
+import React from 'react';
 
-const Sell = props => (
-  <div>
-    <PleaseSignIn>
-      <CreateItem />
-    </PleaseSignIn>
-  </div>
-);
+function sell() {
+  return <div>sell page</div>;
+}
 
-export default Sell;
+export default sell;
