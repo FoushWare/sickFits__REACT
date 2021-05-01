@@ -1,10 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import Header from './Header';
 
 export default function Page({ children }) {
   return (
     <>
-      <h2>I'm from page component</h2>
+      <Header />
+
       {children}
     </>
   );
 }
+Page.propTypes = {
+  children: PropTypes.any,
+};
