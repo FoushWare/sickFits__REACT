@@ -9,6 +9,7 @@ import { createAuth } from '@keystone-next/auth';
 import { User } from './schemas/User';
 import { Product } from './schemas/Product';
 import { ProductImage } from './schemas/ProductImage';
+import { insertSeedData } from './seed-data';
 
 // define the DB
 
@@ -46,7 +47,13 @@ export default withAuth(
       // eslint-disable-next-line @typescript-eslint/no-unsafe-call
       adapter: 'mongoose',
       url: databaseURL,
-      // TODO: Add data seeding here
+      // Add data seeding here
+      async onConnect(keystone) {
+        console.log('connected to the db');
+        if (process.argv.includes('--seed-data')) {
+          await insertSeedData(keystone);
+        }
+      },
     }, // Keystone deal with entity[users,products,orders] as lists
     lists: createSchema({
       // Schema items go in here`:w
