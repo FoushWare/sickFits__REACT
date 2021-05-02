@@ -1,15 +1,11 @@
 import 'dotenv/config'; // Get all .env variables
 import { config, createSchema } from '@keystone-next/keystone/schema';
-
-const { MongooseAdapter } = require('@keystonejs/adapter-mongoose');
+import { User } from './schemas/User';
 
 // define the DB
 
 const databaseURL =
   process.env.DATABASE_URL || 'mongodb://localhost/keystone-sick-fits';
-
-
-
 
 // session config for authentication
 
@@ -29,12 +25,13 @@ export default config({
   },
   db: {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-call
-    adapter:'mongoose',
-    url:databaseURL,
+    adapter: 'mongoose',
+    url: databaseURL,
     // TODO: Add data seeding here
   }, // Keystone deal with entity[users,products,orders] as lists
   lists: createSchema({
     // Schema items go in here`:w
+    User,
   }),
   ui: {
     // TODO: change this for roles
