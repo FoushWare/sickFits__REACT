@@ -8,6 +8,7 @@ import { createAuth } from '@keystone-next/auth';
 
 import { User } from './schemas/User';
 import { Product } from './schemas/Product';
+import { ProductImage } from './schemas/ProductImage';
 
 // define the DB
 
@@ -51,6 +52,7 @@ export default withAuth(
       // Schema items go in here`:w
       User,
       Product,
+      ProductImage,
     }),
     ui: {
       // TODO: change this for roles
