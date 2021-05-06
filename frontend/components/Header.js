@@ -1,4 +1,3 @@
-import React from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 import Nav from './Nav';
@@ -17,13 +16,14 @@ const Logo = styled.h1`
     padding: 0.5rem 1rem;
   }
 `;
-const HeaderStyle = styled.header`
+
+const HeaderStyles = styled.header`
   .bar {
     border-bottom: 10px solid var(--black, black);
     display: grid;
     grid-template-columns: auto 1fr;
     justify-content: space-between;
-    align-items: center;
+    align-items: stretch;
   }
   .sub-bar {
     display: grid;
@@ -31,20 +31,19 @@ const HeaderStyle = styled.header`
     border-bottom: 1px solid var(--black, black);
   }
 `;
-function Header() {
+
+export default function Header() {
   return (
-    <HeaderStyle>
+    <HeaderStyles>
       <div className="bar">
         <Logo>
           <Link href="/">Sick fits</Link>
         </Logo>
+        <Nav />
       </div>
       <div className="sub-bar">
         <p>Search</p>
       </div>
-      <Nav />
-    </HeaderStyle>
+    </HeaderStyles>
   );
 }
-
-export default Header;
