@@ -1,7 +1,7 @@
 /* eslint-disable import/no-cycle */
 import { useMutation } from '@apollo/client';
 import gql from 'graphql-tag';
-import { ALL_PRODUCTS_QUERY } from '../pages/products';
+import { ALL_PRODUCTS_QUERY } from '../pages';
 
 const DELETE_PRODUCT_MUTATION = gql`
   mutation DELETE_PRODUCT_MUTATION($id: ID!) {
