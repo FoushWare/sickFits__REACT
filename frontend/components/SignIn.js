@@ -53,7 +53,7 @@ export default function SignIn() {
     console.log(res);
     resetForm();
     // Route to the products page
-    router.push('/');
+    router.push('/products');
   };
 
   // Error when the auth failed
