@@ -16,5 +16,11 @@
   "editor.codeActionsOnSave": {
     "source.fixAll": true
   },
-  "prettier.disableLanguages": ["javascript", "javascriptreact"]
+  "prettier.disableLanguages": [
+    "javascript",
+    "javascriptreact"
+  ],
+  "prettier.requireConfig": true,
+  "html.format.indentInnerHtml": true,
+  "html.format.indentHandlebars": true
 }

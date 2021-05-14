@@ -1,3 +1,9 @@
+/// /////       what this hook do is :  ////////
+// 00- create state for the provided inputs
+// 01- Handle input changes and update the state regard to the change
+// 02- reset the form inputs to the previous values
+// 03- clear the form inputs
+
 import { useEffect, useState } from 'react';
 
 export default function useForm(initial = {}) {
