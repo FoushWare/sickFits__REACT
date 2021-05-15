@@ -35,6 +35,7 @@
 		"react": "^17.0.1",
 		"react-dom": "^17.0.1",
 		"react-icons": "^4.2.0",
+		"react-toastify": "^7.0.4",
 		"react-transition-group": "^4.4.1",
 		"styled-components": "^5.2.1",
 		"waait": "^1.0.5"
@@ -67,7 +68,6 @@
 		"extends": [
 			"wesbos"
 		]
-		 
 	},
 	"jest": {
 		"setupFilesAfterEnv": [
