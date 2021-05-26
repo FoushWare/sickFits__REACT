@@ -9,8 +9,10 @@ import { createAuth } from '@keystone-next/auth';
 import { User } from './schemas/User';
 import { Product } from './schemas/Product';
 import { ProductImage } from './schemas/ProductImage';
+import { CartItem } from './schemas/CartItem';
 import { insertSeedData } from './seed-data';
 import { sendPasswordResetEmail } from './lib/mail';
+import { extendGraphqlSchema } from './mutations';
 
 // define the DB
 
@@ -68,7 +70,9 @@ export default withAuth(
       User,
       Product,
       ProductImage,
+      CartItem,
     }),
+    extendGraphqlSchema,
     ui: {
       // TODO: change this for roles
       isAccessAllowed: ({ session }) => {
