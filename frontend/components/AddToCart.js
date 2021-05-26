@@ -16,7 +16,7 @@ export default function AddToCart({ id }) {
   });
   return (
     <button type="button" disabled={loading} onClick={addToCart}>
-      Add{loading && 'ing'} To Cart 🛒
+      <span style={{ color: 'green' }}>Add{loading && 'ing'} To Cart 🛒</span>
     </button>
   );
 }

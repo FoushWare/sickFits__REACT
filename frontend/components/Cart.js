@@ -4,7 +4,10 @@ import { useCart } from '../lib/cartState';
 import CartStyles from './styles/CartStyles';
 import CloseButton from './styles/CloseButton';
 import Supreme from './styles/Supreme';
+import calcTotalPrice from '../lib/CalcTotalPrice';
+
 import formatMoney from '../lib/formatMoney';
+// import { Checkout } from './Checkout';
 
 const CartItemStyles = styled.li`
   padding: 1rem 0;
@@ -61,6 +64,10 @@ export default function Cart() {
           <CartItem key={cartItem.id} cartItem={cartItem} />
         ))}
       </ul>
+      <footer>
+        <p>{formatMoney(calcTotalPrice(me.cart))}</p>
+        {/* <Checkout /> */}
+      </footer>
     </CartStyles>
   );
 }
